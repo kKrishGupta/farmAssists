@@ -1,0 +1,2043 @@
+  Crop                N         P         K         pH
+ 0Rice                    80        40        40         5.5
+ 1Jowar(Sorghum)          80        40        40         5.5
+ 2Barley(JAV)             70        40        45         5.5
+ 3Maize                   80        40        20         5.5
+ 4Ragi( naachnnii)        50        40        20         5.5
+ 5Chickpeas(Channa)       40        60        80         5.5
+  French
+ 6Beans(Farasbi)          90        125       60          5
+  Fava beans (Papdi
+ 7- Val)                  90        125       60          5
+ 8Lima beans(Pavta)       40         60       20          5
+  Cluster
+ 9Beans(Gavar)            25        50        25           5
+10Soyabean                20        60        20         5.5
+  Black eyed beans(
+11chawli)                 20        60        20         5.5
+12Kidney beans            20        60        20         5.5
+  pigeon peas(Toor
+13Dal)                     20       60         20        5.5
+14Moth bean(Matki)         20       40         20        5.5
+15Mung beans               20       40         20        5.5
+16Green Peas               40       35         55          6
+17Horse Gram(kulthi)       20       60         20          6
+18Black Gram               40       60         20          5
+19Rapeseed (Mohri)         50       40         20          5
+20Coriander seeds          90       20         20        6.5
+21Mustard seeds           100       30         15        6.5
+22sesame seed              30       15         30        6.5
+23Cumin seeds              90       60         20        6.5
+24Lentils(Masoor Dal)      20       60         20        5.5
+25Brinjal                  80       15         40        6.5
+26Beetroot                120       50        100        5.5
+27Bitter Gourd             60       10         20        6.5
+28Bottle Gourd            100       50         50        6.5
+29Capsicum                100       20         60        6.5
+30Cabbage                 100       65         70        6.5
+31Carrot                   40       45         60        5.5
+32Cauliflower              80       70         50        6.5
+33Cucumber                 60       60         85        6.5
+34Coriander leaves         10       20         20        6.5
+35Curry leaves             20       20         20        6.5
+  Drumstick –
+36moringa                  40        20        10        6.5
+37Chili                   120        20        80        6.5
+38Lady Finger              80        10        40        6.5
+39Mushroom                100        50        60        6.5
+40Onion                   120        60        65          6
+41Potato                  180        60        90          5
+42Pumpkin                  80        50        30        5.5
+43Radish                   25       100        50          6
+44Olive                   100        60        30        6.5
+45Sweet Potato             90        20       120          5
+  Fenugreek
+46Leaf(methi)             30        25        40           6
+47Spinach                 60        60        50           6
+48Ridgegourd              90        50        20         6.5
+49Gooseberry(Amla)        20        50        20         4.5
+  Jambun(Syzygium
+50cumini)                 10        10        10         4.2
+  Ziziphus
+51mauritiana(Bor)         20        10        10          6
+  Garcinia
+52indica(kokam)            40       25         50        4.2
+53Tamarind                 20       15         25        3.1
+54Tapioca(Suran)           50       50         50        5.5
+55Garlic                   50       10         60        5.5
+56Lemon                    20       10         10        3.1
+57Tomato                  100       40         90          6
+58Ash Gourd                60       10         30        5.5
+59Pineapple               160       40        120        6.5
+60Pomegranate              20       10         40        5.5
+ 61Banana                100    75    50    6.5
+ 62Mango                  20    20    30      5
+ 63Grapes                 20   125   200      4
+ 64Jackfruit              75    40    50      5
+ 65Guava                  50    50    50      5
+ 66Water Melon           100    10    50    5.5
+ 67Musk Melon            100    10    50    5.5
+ 68Apricot                40    50    25    6.5
+ 69Apple                  20   125   200    6.5
+ 70Chickoo                40    30    60      5
+ 71Custard apple          40    20    40    6.5
+ 72Dates                  40   125    20    6.5
+ 73Figs                   20    60    20      5
+ 74Orange                 20    10    10      4
+ 75Papaya                 50    50    50      6
+ 76Aniseed               100    50    20      5
+ 77Asafoetida             90    40    20      5
+ 78Bay Leaf              100    50    25      5
+ 79Black Pepper          100    60    50      5
+ 80Cardamom               75    75   150      5
+ 81Cinnamon               20    20    25      5
+ 82Cloves                 20    20    60      5
+ 83Jaiphal(Nutmeg)        20    20    60      5
+ 84Ginger                 40    50    20      5
+ 85Turmeric               25    60   100      5
+ 86Cashewnuts             70    40    60      6
+ 87Raisins                60    30    30      6
+ 88Coconut                20    10    30      5
+ 89Almond Nut             70    20    10      6
+ 90Arecanut              100    40   140      6
+ 91Pistachio Nut          90    20    20      6
+ 92Lemon Grass            25    40    40    5.5
+ 93Cotton                120    40    20    5.5
+ 94Jute                   80    40    40    5.5
+ 95Coffee                100    20    30    5.5
+ 96Sunflower              50    60    30    5.5
+ 97Rice                   80    40    40   5.52
+ 98Jowar(Sorghum)         80    40    40   5.52
+ 99Barley(JAV)            70    40    45   5.52
+100Maize                  80    40    20   5.52
+101Ragi( naachnnii)       50    40    20   5.52
+102Chickpeas(Channa)      40    60    80   5.52
+   French
+103Beans(Farasbi)        90    125   60    5.02
+   Fava beans (Papdi
+104- Val)                90    125   60    5.02
+105Lima beans(Pavta)     40     60   20    5.02
+   Cluster
+106Beans(Gavar)          25    50    25    5.02
+107Soyabean              20    60    20    5.52
+   Black eyed beans(
+108chawli)               20    60    20    5.52
+109Kidney beans          20    60    20    5.52
+   pigeon peas(Toor
+110Dal)                   20   60     20   5.52
+111Moth bean(Matki)       20   40     20   5.52
+112Mung beans             20   40     20   5.52
+113Green Peas             40   35     55   6.02
+114Horse Gram(kulthi)     20   60     20   6.02
+115Black Gram             40   60     20   5.02
+116Rapeseed (Mohri)       50   40     20   5.02
+117Coriander seeds        90   20     20   6.52
+118Mustard seeds         100   30     15   6.52
+119sesame seed            30   15     30   6.52
+120Cumin seeds            90   60     20   6.52
+121Lentils(Masoor Dal)    20   60     20   5.52
+122Brinjal                80   15     40   6.52
+123Beetroot              120   50    100   5.52
+124Bitter Gourd           60   10     20   6.52
+125Bottle Gourd          100   50     50   6.52
+126Capsicum              100   20     60   6.52
+127Cabbage            100   65    70    6.52
+128Carrot             40    45    60    5.52
+129Cauliflower        80    70    50    6.52
+130Cucumber           60    60    85    6.52
+131Coriander leaves   10    20    20    6.52
+132Curry leaves       20    20    20    6.52
+   Drumstick –
+133moringa             40    20    10   6.52
+134Chili              120    20    80   6.52
+135Lady Finger         80    10    40   6.52
+136Mushroom           100    50    60   6.52
+137Onion              120    60    65   6.02
+138Potato             180    60    90   5.02
+139Pumpkin             80    50    30   5.52
+140Radish              25   100    50   6.02
+141Olive              100    60    30   6.52
+142Sweet Potato        90    20   120   5.02
+   Fenugreek
+143Leaf(methi)        30    25    40    6.02
+144Spinach            60    60    50    6.02
+145Ridgegourd         90    50    20    6.52
+146Gooseberry(Amla)   20    50    20    4.52
+   Jambun(Syzygium
+147cumini)            10    10    10    4.22
+   Ziziphus
+148mauritiana(Bor)    20    10    10    6.02
+   Garcinia
+149indica(kokam)       40    25    50   4.22
+150Tamarind            20    15    25   3.12
+151Tapioca(Suran)      50    50    50   5.52
+152Garlic              50    10    60   5.52
+153Lemon               20    10    10   3.12
+154Tomato             100    40    90   6.02
+155Ash Gourd           60    10    30   5.52
+156Pineapple          160    40   120   6.52
+157Pomegranate         20    10    40   5.52
+158Banana             100    75    50   6.52
+159Mango               20    20    30   5.02
+160Grapes              20   125   200   4.02
+161Jackfruit           75    40    50   5.02
+162Guava               50    50    50   5.02
+163Water Melon        100    10    50   5.52
+164Musk Melon         100    10    50   5.52
+165Apricot             40    50    25   6.52
+166Apple               20   125   200   6.52
+167Chickoo             40    30    60   5.02
+168Custard apple       40    20    40   6.52
+169Dates               40   125    20   6.52
+170Figs                20    60    20   5.02
+171Orange              20    10    10   4.02
+172Papaya              50    50    50   6.02
+173Aniseed            100    50    20   5.02
+174Asafoetida          90    40    20   5.02
+175Bay Leaf           100    50    25   5.02
+176Black Pepper       100    60    50   5.02
+177Cardamom            75    75   150   5.02
+178Cinnamon            20    20    25   5.02
+179Cloves              20    20    60   5.02
+180Jaiphal(Nutmeg)     20    20    60   5.02
+181Ginger              40    50    20   5.02
+182Turmeric            25    60   100   5.02
+183Cashewnuts          70    40    60   6.02
+184Raisins             60    30    30   6.02
+185Coconut             20    10    30   5.02
+186Almond Nut          70    20    10   6.02
+187Arecanut           100    40   140   6.02
+188Pistachio Nut       90    20    20   6.02
+189Lemon Grass         25    40    40   5.52
+190Cotton             120    40    20   5.52
+191Jute                80    40    40   5.52
+192Coffee             100    20    30   5.52
+193Sunflower             50    60    30    5.52
+194Rice                  80    40    40    5.54
+195Jowar(Sorghum)        80    40    40    5.54
+196Barley(JAV)           70    40    45    5.54
+197Maize                 80    40    20    5.54
+198Ragi( naachnnii)      50    40    20    5.54
+199Chickpeas(Channa)     40    60    80    5.54
+   French
+200Beans(Farasbi)        90    125   60    5.04
+   Fava beans (Papdi
+201- Val)                90    125   60    5.04
+202Lima beans(Pavta)     40     60   20    5.04
+   Cluster
+203Beans(Gavar)          25    50    25    5.04
+204Soyabean              20    60    20    5.54
+   Black eyed beans(
+205chawli)               20    60    20    5.54
+206Kidney beans          20    60    20    5.54
+   pigeon peas(Toor
+207Dal)                   20   60     20   5.54
+208Moth bean(Matki)       20   40     20   5.54
+209Mung beans             20   40     20   5.54
+210Green Peas             40   35     55   6.04
+211Horse Gram(kulthi)     20   60     20   6.04
+212Black Gram             40   60     20   5.04
+213Rapeseed (Mohri)       50   40     20   5.04
+214Coriander seeds        90   20     20   6.54
+215Mustard seeds         100   30     15   6.54
+216sesame seed            30   15     30   6.54
+217Cumin seeds            90   60     20   6.54
+218Lentils(Masoor Dal)    20   60     20   5.54
+219Brinjal                80   15     40   6.54
+220Beetroot              120   50    100   5.54
+221Bitter Gourd           60   10     20   6.54
+222Bottle Gourd          100   50     50   6.54
+223Capsicum              100   20     60   6.54
+224Cabbage               100   65     70   6.54
+225Carrot                 40   45     60   5.54
+226Cauliflower            80   70     50   6.54
+227Cucumber               60   60     85   6.54
+228Coriander leaves       10   20     20   6.54
+229Curry leaves           20   20     20   6.54
+   Drumstick –
+230moringa                40    20    10   6.54
+231Chili                 120    20    80   6.54
+232Lady Finger            80    10    40   6.54
+233Mushroom              100    50    60   6.54
+234Onion                 120    60    65   6.04
+235Potato                180    60    90   5.04
+236Pumpkin                80    50    30   5.54
+237Radish                 25   100    50   6.04
+238Olive                 100    60    30   6.54
+239Sweet Potato           90    20   120   5.04
+   Fenugreek
+240Leaf(methi)           30    25    40    6.04
+241Spinach               60    60    50    6.04
+242Ridgegourd            90    50    20    6.54
+243Gooseberry(Amla)      20    50    20    4.54
+   Jambun(Syzygium
+244cumini)               10    10    10    4.24
+   Ziziphus
+245mauritiana(Bor)       20    10    10    6.04
+   Garcinia
+246indica(kokam)          40   25     50   4.24
+247Tamarind               20   15     25   3.14
+248Tapioca(Suran)         50   50     50   5.54
+249Garlic                 50   10     60   5.54
+250Lemon                  20   10     10   3.14
+251Tomato                100   40     90   6.04
+252Ash Gourd              60   10     30   5.54
+253Pineapple             160   40    120   6.54
+254Pomegranate            20   10    40    5.54
+255Banana                100   75    50    6.54
+256Mango                  20    20    30   5.04
+257Grapes                 20   125   200   4.04
+258Jackfruit              75    40    50   5.04
+259Guava                  50    50    50   5.04
+260Water Melon           100    10    50   5.54
+261Musk Melon            100    10    50   5.54
+262Apricot                40    50    25   6.54
+263Apple                  20   125   200   6.54
+264Chickoo                40    30    60   5.04
+265Custard apple          40    20    40   6.54
+266Dates                  40   125    20   6.54
+267Figs                   20    60    20   5.04
+268Orange                 20    10    10   4.04
+269Papaya                 50    50    50   6.04
+270Aniseed               100    50    20   5.04
+271Asafoetida             90    40    20   5.04
+272Bay Leaf              100    50    25   5.04
+273Black Pepper          100    60    50   5.04
+274Cardamom               75    75   150   5.04
+275Cinnamon               20    20    25   5.04
+276Cloves                 20    20    60   5.04
+277Jaiphal(Nutmeg)        20    20    60   5.04
+278Ginger                 40    50    20   5.04
+279Turmeric               25    60   100   5.04
+280Cashewnuts             70    40    60   6.04
+281Raisins                60    30    30   6.04
+282Coconut                20    10    30   5.04
+283Almond Nut             70    20    10   6.04
+284Arecanut              100    40   140   6.04
+285Pistachio Nut          90    20    20   6.04
+286Lemon Grass            25    40    40   5.54
+287Cotton                120    40    20   5.54
+288Jute                   80    40    40   5.54
+289Coffee                100    20    30   5.54
+290Sunflower              50    60    30   5.54
+291Rice                   80    40    40   5.56
+292Jowar(Sorghum)         80    40    40   5.56
+293Barley(JAV)            70    40    45   5.56
+294Maize                  80    40    20   5.56
+295Ragi( naachnnii)       50    40    20   5.56
+296Chickpeas(Channa)      40    60    80   5.56
+   French
+297Beans(Farasbi)        90    125   60    5.06
+   Fava beans (Papdi
+298- Val)                90    125   60    5.06
+299Lima beans(Pavta)     40     60   20    5.06
+   Cluster
+300Beans(Gavar)          25    50    25    5.06
+301Soyabean              20    60    20    5.56
+   Black eyed beans(
+302chawli)               20    60    20    5.56
+303Kidney beans          20    60    20    5.56
+   pigeon peas(Toor
+304Dal)                   20   60     20   5.56
+305Moth bean(Matki)       20   40     20   5.56
+306Mung beans             20   40     20   5.56
+307Green Peas             40   35     55   6.06
+308Horse Gram(kulthi)     20   60     20   6.06
+309Black Gram             40   60     20   5.06
+310Rapeseed (Mohri)       50   40     20   5.06
+311Coriander seeds        90   20     20   6.56
+312Mustard seeds         100   30     15   6.56
+313sesame seed            30   15     30   6.56
+314Cumin seeds            90   60     20   6.56
+315Lentils(Masoor Dal)    20   60     20   5.56
+316Brinjal                80   15     40   6.56
+317Beetroot              120   50    100   5.56
+318Bitter Gourd           60   10     20   6.56
+319Bottle Gourd       100   50    50    6.56
+320Capsicum           100   20    60    6.56
+321Cabbage            100   65    70    6.56
+
+322Carrot             40    45    60    5.56
+323Cauliflower        80    70    50    6.56
+324Cucumber           60    60    85    6.56
+325Coriander leaves   10    20    20    6.56
+326Curry leaves       20    20    20    6.56
+   Drumstick –
+327moringa             40    20    10   6.56
+328Chili              120    20    80   6.56
+329Lady Finger         80    10    40   6.56
+330Mushroom           100    50    60   6.56
+331Onion              120    60    65   6.06
+332Potato             180    60    90   5.06
+333Pumpkin             80    50    30   5.56
+334Radish              25   100    50   6.06
+335Olive              100    60    30   6.56
+336Sweet Potato        90    20   120   5.06
+   Fenugreek
+337Leaf(methi)        30    25    40    6.06
+338Spinach            60    60    50    6.06
+339Ridgegourd         90    50    20    6.56
+340Gooseberry(Amla)   20    50    20    4.56
+   Jambun(Syzygium
+341cumini)            10    10    10    4.26
+   Ziziphus
+342mauritiana(Bor)    20    10    10    6.06
+   Garcinia
+343indica(kokam)       40    25    50   4.26
+344Tamarind            20    15    25   3.16
+345Tapioca(Suran)      50    50    50   5.56
+346Garlic              50    10    60   5.56
+347Lemon               20    10    10   3.16
+348Tomato             100    40    90   6.06
+349Ash Gourd           60    10    30   5.56
+350Pineapple          160    40   120   6.56
+351Pomegranate         20    10    40   5.56
+352Banana             100    75    50   6.56
+353Mango               20    20    30   5.06
+354Grapes              20   125   200   4.06
+355Jackfruit           75    40    50   5.06
+356Guava               50    50    50   5.06
+357Water Melon        100    10    50   5.56
+358Musk Melon         100    10    50   5.56
+359Apricot             40    50    25   6.56
+360Apple               20   125   200   6.56
+361Chickoo             40    30    60   5.06
+362Custard apple       40    20    40   6.56
+363Dates               40   125    20   6.56
+364Figs                20    60    20   5.06
+365Orange              20    10    10   4.06
+366Papaya              50    50    50   6.06
+367Aniseed            100    50    20   5.06
+368Asafoetida          90    40    20   5.06
+369Bay Leaf           100    50    25   5.06
+370Black Pepper       100    60    50   5.06
+371Cardamom            75    75   150   5.06
+372Cinnamon            20    20    25   5.06
+373Cloves              20    20    60   5.06
+374Jaiphal(Nutmeg)     20    20    60   5.06
+375Ginger              40    50    20   5.06
+376Turmeric            25    60   100   5.06
+377Cashewnuts          70    40    60   6.06
+378Raisins             60    30    30   6.06
+379Coconut             20    10    30   5.06
+380Almond Nut          70    20    10   6.06
+381Arecanut           100    40   140   6.06
+382Pistachio Nut       90    20    20   6.06
+383Lemon Grass         25    40    40   5.56
+384Cotton                120   40    20    5.56
+385Jute                   80   40    40    5.56
+386Coffee                100   20    30    5.56
+387Sunflower              50   60    30    5.56
+
+388Rice                  80    40    40    5.58
+389Jowar(Sorghum)        80    40    40    5.58
+390Barley(JAV)           70    40    45    5.58
+391Maize                 80    40    20    5.58
+392Ragi( naachnnii)      50    40    20    5.58
+393Chickpeas(Channa)     40    60    80    5.58
+   French
+394Beans(Farasbi)        90    125   60    5.08
+   Fava beans (Papdi
+395- Val)                90    125   60    5.08
+396Lima beans(Pavta)     40     60   20    5.08
+   Cluster
+397Beans(Gavar)          25    50    25    5.08
+398Soyabean              20    60    20    5.58
+   Black eyed beans(
+399chawli)               20    60    20    5.58
+400Kidney beans          20    60    20    5.58
+   pigeon peas(Toor
+401Dal)                   20   60     20   5.58
+402Moth bean(Matki)       20   40     20   5.58
+403Mung beans             20   40     20   5.58
+404Green Peas             40   35     55   6.08
+405Horse Gram(kulthi)     20   60     20   6.08
+406Black Gram             40   60     20   5.08
+407Rapeseed (Mohri)       50   40     20   5.08
+408Coriander seeds        90   20     20   6.58
+409Mustard seeds         100   30     15   6.58
+410sesame seed            30   15     30   6.58
+411Cumin seeds            90   60     20   6.58
+412Lentils(Masoor Dal)    20   60     20   5.58
+413Brinjal                80   15     40   6.58
+414Beetroot              120   50    100   5.58
+415Bitter Gourd           60   10     20   6.58
+416Bottle Gourd          100   50     50   6.58
+417Capsicum              100   20     60   6.58
+418Cabbage               100   65     70   6.58
+419Carrot                 40   45     60   5.58
+420Cauliflower            80   70     50   6.58
+421Cucumber               60   60     85   6.58
+422Coriander leaves       10   20     20   6.58
+423Curry leaves           20   20     20   6.58
+   Drumstick –
+424moringa                40    20    10   6.58
+425Chili                 120    20    80   6.58
+426Lady Finger            80    10    40   6.58
+427Mushroom              100    50    60   6.58
+428Onion                 120    60    65   6.08
+429Potato                180    60    90   5.08
+430Pumpkin                80    50    30   5.58
+431Radish                 25   100    50   6.08
+432Olive                 100    60    30   6.58
+433Sweet Potato           90    20   120   5.08
+   Fenugreek
+434Leaf(methi)           30    25    40    6.08
+435Spinach               60    60    50    6.08
+436Ridgegourd            90    50    20    6.58
+437Gooseberry(Amla)      20    50    20    4.58
+   Jambun(Syzygium
+438cumini)               10    10    10    4.28
+   Ziziphus
+439mauritiana(Bor)       20    10    10    6.08
+   Garcinia
+440indica(kokam)         40    25    50    4.28
+441Tamarind              20    15    25    3.18
+442Tapioca(Suran)        50    50    50    5.58
+443Garlic                50    10    60    5.58
+444Lemon                 20    10    10    3.18
+445Tomato                100    40    90   6.08
+446Ash Gourd              60    10    30   5.58
+447Pineapple             160    40   120   6.58
+448Pomegranate            20    10    40   5.58
+449Banana                100    75    50   6.58
+450Mango                  20    20    30   5.08
+451Grapes                 20   125   200   4.08
+452Jackfruit              75    40    50   5.08
+453Guava                  50    50    50   5.08
+454Water Melon           100    10    50   5.58
+455Musk Melon            100    10    50   5.58
+456Apricot                40    50    25   6.58
+457Apple                  20   125   200   6.58
+458Chickoo                40    30    60   5.08
+459Custard apple          40    20    40   6.58
+460Dates                  40   125    20   6.58
+461Figs                   20    60    20   5.08
+462Orange                 20    10    10   4.08
+463Papaya                 50    50    50   6.08
+464Aniseed               100    50    20   5.08
+465Asafoetida             90    40    20   5.08
+466Bay Leaf              100    50    25   5.08
+467Black Pepper          100    60    50   5.08
+468Cardamom               75    75   150   5.08
+469Cinnamon               20    20    25   5.08
+470Cloves                 20    20    60   5.08
+471Jaiphal(Nutmeg)        20    20    60   5.08
+472Ginger                 40    50    20   5.08
+473Turmeric               25    60   100   5.08
+474Cashewnuts             70    40    60   6.08
+475Raisins                60    30    30   6.08
+476Coconut                20    10    30   5.08
+477Almond Nut             70    20    10   6.08
+478Arecanut              100    40   140   6.08
+479Pistachio Nut          90    20    20   6.08
+480Lemon Grass            25    40    40   5.58
+481Cotton                120    40    20   5.58
+482Jute                   80    40    40   5.58
+483Coffee                100    20    30   5.58
+484Sunflower              50    60    30   5.58
+485Rice                   80    40    40    5.6
+486Jowar(Sorghum)         80    40    40    5.6
+487Barley(JAV)            70    40    45    5.6
+488Maize                  80    40    20    5.6
+489Ragi( naachnnii)       50    40    20    5.6
+490Chickpeas(Channa)      40    60    80    5.6
+   French
+491Beans(Farasbi)        90    125   60     5.1
+   Fava beans (Papdi
+492- Val)                90    125   60     5.1
+493Lima beans(Pavta)     40     60   20     5.1
+   Cluster
+494Beans(Gavar)          25    50    25     5.1
+495Soyabean              20    60    20     5.6
+   Black eyed beans(
+496chawli)               20    60    20     5.6
+497Kidney beans          20    60    20     5.6
+   pigeon peas(Toor
+498Dal)                   20   60    20     5.6
+499Moth bean(Matki)       20   40    20     5.6
+500Mung beans             20   40    20     5.6
+501Green Peas             40   35    55     6.1
+502Horse Gram(kulthi)     20   60    20     6.1
+503Black Gram             40   60    20     5.1
+504Rapeseed (Mohri)       50   40    20     5.1
+505Coriander seeds        90   20    20     6.6
+506Mustard seeds         100   30    15     6.6
+507sesame seed            30   15    30     6.6
+508Cumin seeds            90   60    20     6.6
+509Lentils(Masoor Dal)    20   60    20     5.6
+510Brinjal                80   15    40     6.6
+511Beetroot           120   50    100   5.6
+512Bitter Gourd        60   10     20   6.6
+513Bottle Gourd       100   50     50   6.6
+514Capsicum           100   20     60   6.6
+515Cabbage            100   65     70   6.6
+516Carrot              40   45     60   5.6
+517Cauliflower         80   70     50   6.6
+518Cucumber            60   60     85   6.6
+519Coriander leaves    10   20     20   6.6
+520Curry leaves        20   20     20   6.6
+   Drumstick –
+521moringa             40    20    10   6.6
+522Chili              120    20    80   6.6
+523Lady Finger         80    10    40   6.6
+524Mushroom           100    50    60   6.6
+525Onion              120    60    65   6.1
+526Potato             180    60    90   5.1
+527Pumpkin             80    50    30   5.6
+528Radish              25   100    50   6.1
+529Olive              100    60    30   6.6
+530Sweet Potato        90    20   120   5.1
+   Fenugreek
+531Leaf(methi)        30    25    40    6.1
+532Spinach            60    60    50    6.1
+533Ridgegourd         90    50    20    6.6
+534Gooseberry(Amla)   20    50    20    4.6
+   Jambun(Syzygium
+535cumini)            10    10    10    4.3
+   Ziziphus
+536mauritiana(Bor)    20    10    10    6.1
+   Garcinia
+537indica(kokam)       40    25    50   4.3
+538Tamarind            20    15    25   3.2
+539Tapioca(Suran)      50    50    50   5.6
+540Garlic              50    10    60   5.6
+541Lemon               20    10    10   3.2
+542Tomato             100    40    90   6.1
+543Ash Gourd           60    10    30   5.6
+544Pineapple          160    40   120   6.6
+545Pomegranate         20    10    40   5.6
+546Banana             100    75    50   6.6
+547Mango               20    20    30   5.1
+548Grapes              20   125   200   4.1
+549Jackfruit           75    40    50   5.1
+550Guava               50    50    50   5.1
+551Water Melon        100    10    50   5.6
+552Musk Melon         100    10    50   5.6
+553Apricot             40    50    25   6.6
+554Apple               20   125   200   6.6
+555Chickoo             40    30    60   5.1
+556Custard apple       40    20    40   6.6
+557Dates               40   125    20   6.6
+558Figs                20    60    20   5.1
+559Orange              20    10    10   4.1
+560Papaya              50    50    50   6.1
+561Aniseed            100    50    20   5.1
+562Asafoetida          90    40    20   5.1
+563Bay Leaf           100    50    25   5.1
+564Black Pepper       100    60    50   5.1
+565Cardamom            75    75   150   5.1
+566Cinnamon            20    20    25   5.1
+567Cloves              20    20    60   5.1
+568Jaiphal(Nutmeg)     20    20    60   5.1
+569Ginger              40    50    20   5.1
+570Turmeric            25    60   100   5.1
+571Cashewnuts          70    40    60   6.1
+572Raisins             60    30    30   6.1
+573Coconut             20    10    30   5.1
+574Almond Nut          70    20    10   6.1
+575Arecanut           100    40   140   6.1
+576Pistachio Nut       90    20    20   6.1
+577Lemon Grass            25   40    40     5.6
+578Cotton                120   40    20     5.6
+579Jute                   80   40    40     5.6
+580Coffee                100   20    30     5.6
+581Sunflower              50   60    30     5.6
+582Rice                   80   40    40    5.62
+583Jowar(Sorghum)        80    40    40    5.62
+584Barley(JAV)           70    40    45    5.62
+585Maize                 80    40    20    5.62
+586Ragi( naachnnii)      50    40    20    5.62
+587Chickpeas(Channa)     40    60    80    5.62
+   French
+588Beans(Farasbi)        90    125   60    5.12
+   Fava beans (Papdi
+589- Val)                90    125   60    5.12
+590Lima beans(Pavta)     40     60   20    5.12
+   Cluster
+591Beans(Gavar)          25    50    25    5.12
+592Soyabean              20    60    20    5.62
+   Black eyed beans(
+593chawli)               20    60    20    5.62
+594Kidney beans          20    60    20    5.62
+   pigeon peas(Toor
+595Dal)                   20   60     20   5.62
+596Moth bean(Matki)       20   40     20   5.62
+597Mung beans             20   40     20   5.62
+598Green Peas             40   35     55   6.12
+599Horse Gram(kulthi)     20   60     20   6.12
+600Black Gram             40   60     20   5.12
+601Rapeseed (Mohri)       50   40     20   5.12
+602Coriander seeds        90   20     20   6.62
+603Mustard seeds         100   30     15   6.62
+604sesame seed            30   15     30   6.62
+605Cumin seeds            90   60     20   6.62
+606Lentils(Masoor Dal)    20   60     20   5.62
+607Brinjal                80   15     40   6.62
+608Beetroot              120   50    100   5.62
+609Bitter Gourd           60   10     20   6.62
+610Bottle Gourd          100   50     50   6.62
+611Capsicum              100   20     60   6.62
+612Cabbage               100   65     70   6.62
+613Carrot                 40   45     60   5.62
+614Cauliflower            80   70     50   6.62
+615Cucumber               60   60     85   6.62
+616Coriander leaves       10   20     20   6.62
+617Curry leaves           20   20     20   6.62
+   Drumstick –
+618moringa                40    20    10   6.62
+619Chili                 120    20    80   6.62
+620Lady Finger            80    10    40   6.62
+621Mushroom              100    50    60   6.62
+622Onion                 120    60    65   6.12
+623Potato                180    60    90   5.12
+624Pumpkin                80    50    30   5.62
+625Radish                 25   100    50   6.12
+626Olive                 100    60    30   6.62
+627Sweet Potato           90    20   120   5.12
+   Fenugreek
+628Leaf(methi)           30    25    40    6.12
+629Spinach               60    60    50    6.12
+630Ridgegourd            90    50    20    6.62
+631Gooseberry(Amla)      20    50    20    4.62
+   Jambun(Syzygium
+632cumini)               10    10    10    4.32
+   Ziziphus
+633mauritiana(Bor)       20    10    10    6.12
+   Garcinia
+634indica(kokam)         40    25    50    4.32
+635Tamarind              20    15    25    3.22
+636Tapioca(Suran)        50    50    50    5.62
+637Garlic                50    10    60    5.62
+638Lemon                 20    10    10    3.22
+639Tomato                100   40     90   6.12
+640Ash Gourd              60   10     30   5.62
+641Pineapple             160   40    120   6.62
+642Pomegranate            20   10     40   5.62
+643Banana                100   75     50   6.62
+644Mango                  20   20     30   5.12
+645Grapes                 20   125   200   4.12
+646Jackfruit              75    40    50   5.12
+647Guava                  50    50    50   5.12
+648Water Melon           100    10    50   5.62
+649Musk Melon            100    10    50   5.62
+650Apricot                40    50    25   6.62
+651Apple                  20   125   200   6.62
+652Chickoo                40    30    60   5.12
+653Custard apple          40    20    40   6.62
+654Dates                  40   125    20   6.62
+655Figs                   20    60    20   5.12
+656Orange                 20    10    10   4.12
+657Papaya                 50    50    50   6.12
+658Aniseed               100    50    20   5.12
+659Asafoetida             90    40    20   5.12
+660Bay Leaf              100    50    25   5.12
+661Black Pepper          100    60    50   5.12
+662Cardamom               75    75   150   5.12
+663Cinnamon               20    20    25   5.12
+664Cloves                 20    20    60   5.12
+665Jaiphal(Nutmeg)        20    20    60   5.12
+666Ginger                 40    50    20   5.12
+667Turmeric               25    60   100   5.12
+668Cashewnuts             70    40    60   6.12
+669Raisins                60    30    30   6.12
+670Coconut                20    10    30   5.12
+671Almond Nut             70    20    10   6.12
+672Arecanut              100    40   140   6.12
+673Pistachio Nut          90    20    20   6.12
+674Lemon Grass            25    40    40   5.62
+675Cotton                120    40    20   5.62
+676Jute                   80    40    40   5.62
+677Coffee                100    20    30   5.62
+678Sunflower              50    60    30   5.62
+679Rice                   80    40    40   5.64
+680Jowar(Sorghum)         80    40    40   5.64
+681Barley(JAV)            70    40    45   5.64
+682Maize                  80    40    20   5.64
+683Ragi( naachnnii)       50    40    20   5.64
+684Chickpeas(Channa)      40    60    80   5.64
+   French
+685Beans(Farasbi)        90    125   60    5.14
+   Fava beans (Papdi
+686- Val)                90    125   60    5.14
+687Lima beans(Pavta)     40     60   20    5.14
+   Cluster
+688Beans(Gavar)          25    50    25    5.14
+689Soyabean              20    60    20    5.64
+   Black eyed beans(
+690chawli)               20    60    20    5.64
+691Kidney beans          20    60    20    5.64
+   pigeon peas(Toor
+692Dal)                   20   60    20    5.64
+693Moth bean(Matki)       20   40    20    5.64
+694Mung beans             20   40    20    5.64
+695Green Peas             40   35    55    6.14
+696Horse Gram(kulthi)     20   60    20    6.14
+697Black Gram             40   60    20    5.14
+698Rapeseed (Mohri)       50   40    20    5.14
+699Coriander seeds        90   20    20    6.64
+700Mustard seeds         100   30    15    6.64
+701sesame seed            30   15    30    6.64
+702Cumin seeds            90   60    20    6.64
+703Lentils(Masoor Dal)    20   60    20    5.64
+704Brinjal             80   15     40   6.64
+705Beetroot           120   50    100   5.64
+706Bitter Gourd        60   10     20   6.64
+707Bottle Gourd       100   50     50   6.64
+708Capsicum           100   20     60   6.64
+709Cabbage            100   65     70   6.64
+710Carrot              40   45     60   5.64
+
+711Cauliflower        80    70    50    6.64
+712Cucumber           60    60    85    6.64
+713Coriander leaves   10    20    20    6.64
+714Curry leaves       20    20    20    6.64
+   Drumstick –
+715moringa             40    20    10   6.64
+716Chili              120    20    80   6.64
+717Lady Finger         80    10    40   6.64
+718Mushroom           100    50    60   6.64
+719Onion              120    60    65   6.14
+720Potato             180    60    90   5.14
+721Pumpkin             80    50    30   5.64
+722Radish              25   100    50   6.14
+723Olive              100    60    30   6.64
+724Sweet Potato        90    20   120   5.14
+   Fenugreek
+725Leaf(methi)        30    25    40    6.14
+726Spinach            60    60    50    6.14
+727Ridgegourd         90    50    20    6.64
+728Gooseberry(Amla)   20    50    20    4.64
+   Jambun(Syzygium
+729cumini)            10    10    10    4.34
+   Ziziphus
+730mauritiana(Bor)    20    10    10    6.14
+   Garcinia
+731indica(kokam)       40    25    50   4.34
+732Tamarind            20    15    25   3.24
+733Tapioca(Suran)      50    50    50   5.64
+734Garlic              50    10    60   5.64
+735Lemon               20    10    10   3.24
+736Tomato             100    40    90   6.14
+737Ash Gourd           60    10    30   5.64
+738Pineapple          160    40   120   6.64
+739Pomegranate         20    10    40   5.64
+740Banana             100    75    50   6.64
+741Mango               20    20    30   5.14
+742Grapes              20   125   200   4.14
+743Jackfruit           75    40    50   5.14
+744Guava               50    50    50   5.14
+745Water Melon        100    10    50   5.64
+746Musk Melon         100    10    50   5.64
+747Apricot             40    50    25   6.64
+748Apple               20   125   200   6.64
+749Chickoo             40    30    60   5.14
+750Custard apple       40    20    40   6.64
+751Dates               40   125    20   6.64
+752Figs                20    60    20   5.14
+753Orange              20    10    10   4.14
+754Papaya              50    50    50   6.14
+755Aniseed            100    50    20   5.14
+756Asafoetida          90    40    20   5.14
+757Bay Leaf           100    50    25   5.14
+758Black Pepper       100    60    50   5.14
+759Cardamom            75    75   150   5.14
+760Cinnamon            20    20    25   5.14
+761Cloves              20    20    60   5.14
+762Jaiphal(Nutmeg)     20    20    60   5.14
+763Ginger              40    50    20   5.14
+764Turmeric            25    60   100   5.14
+765Cashewnuts          70    40    60   6.14
+766Raisins             60    30    30   6.14
+767Coconut             20    10    30   5.14
+768Almond Nut          70    20    10   6.14
+769Arecanut              100   40    140   6.14
+770Pistachio Nut          90   20     20   6.14
+771Lemon Grass            25   40     40   5.64
+772Cotton                120   40     20   5.64
+773Jute                   80   40     40   5.64
+774Coffee                100   20     30   5.64
+775Sunflower              50   60     30   5.64
+776Rice                   80   40     40   5.66
+
+777Jowar(Sorghum)        80    40    40    5.66
+778Barley(JAV)           70    40    45    5.66
+779Maize                 80    40    20    5.66
+780Ragi( naachnnii)      50    40    20    5.66
+781Chickpeas(Channa)     40    60    80    5.66
+   French
+782Beans(Farasbi)        90    125   60    5.16
+   Fava beans (Papdi
+783- Val)                90    125   60    5.16
+784Lima beans(Pavta)     40     60   20    5.16
+   Cluster
+785Beans(Gavar)          25    50    25    5.16
+786Soyabean              20    60    20    5.66
+   Black eyed beans(
+787chawli)               20    60    20    5.66
+788Kidney beans          20    60    20    5.66
+   pigeon peas(Toor
+789Dal)                   20   60     20   5.66
+790Moth bean(Matki)       20   40     20   5.66
+791Mung beans             20   40     20   5.66
+792Green Peas             40   35     55   6.16
+793Horse Gram(kulthi)     20   60     20   6.16
+794Black Gram             40   60     20   5.16
+795Rapeseed (Mohri)       50   40     20   5.16
+796Coriander seeds        90   20     20   6.66
+797Mustard seeds         100   30     15   6.66
+798sesame seed            30   15     30   6.66
+799Cumin seeds            90   60     20   6.66
+800Lentils(Masoor Dal)    20   60     20   5.66
+801Brinjal                80   15     40   6.66
+802Beetroot              120   50    100   5.66
+803Bitter Gourd           60   10     20   6.66
+804Bottle Gourd          100   50     50   6.66
+805Capsicum              100   20     60   6.66
+806Cabbage               100   65     70   6.66
+807Carrot                 40   45     60   5.66
+808Cauliflower            80   70     50   6.66
+809Cucumber               60   60     85   6.66
+810Coriander leaves       10   20     20   6.66
+811Curry leaves           20   20     20   6.66
+   Drumstick –
+812moringa                40    20    10   6.66
+813Chili                 120    20    80   6.66
+814Lady Finger            80    10    40   6.66
+815Mushroom              100    50    60   6.66
+816Onion                 120    60    65   6.16
+817Potato                180    60    90   5.16
+818Pumpkin                80    50    30   5.66
+819Radish                 25   100    50   6.16
+820Olive                 100    60    30   6.66
+821Sweet Potato           90    20   120   5.16
+   Fenugreek
+822Leaf(methi)           30    25    40    6.16
+823Spinach               60    60    50    6.16
+824Ridgegourd            90    50    20    6.66
+825Gooseberry(Amla)      20    50    20    4.66
+   Jambun(Syzygium
+826cumini)               10    10    10    4.36
+   Ziziphus
+827mauritiana(Bor)       20    10    10    6.16
+   Garcinia
+828indica(kokam)         40    25    50    4.36
+829Tamarind              20    15    25    3.26
+830Tapioca(Suran)        50    50    50   5.66
+831Garlic                50    10    60   5.66
+832Lemon                 20    10    10   3.26
+833Tomato               100    40    90   6.16
+834Ash Gourd             60    10    30   5.66
+835Pineapple            160    40   120   6.66
+836Pomegranate           20    10    40   5.66
+837Banana               100    75    50   6.66
+838Mango                 20    20    30   5.16
+839Grapes                20   125   200   4.16
+840Jackfruit             75    40    50   5.16
+841Guava                 50    50    50   5.16
+842Water Melon          100    10    50   5.66
+843Musk Melon           100    10    50   5.66
+844Apricot               40    50    25   6.66
+845Apple                 20   125   200   6.66
+846Chickoo               40    30    60   5.16
+847Custard apple         40    20    40   6.66
+848Dates                 40   125    20   6.66
+849Figs                  20    60    20   5.16
+850Orange                20    10    10   4.16
+851Papaya                50    50    50   6.16
+852Aniseed              100    50    20   5.16
+853Asafoetida            90    40    20   5.16
+854Bay Leaf             100    50    25   5.16
+855Black Pepper         100    60    50   5.16
+856Cardamom              75    75   150   5.16
+857Cinnamon              20    20    25   5.16
+858Cloves                20    20    60   5.16
+859Jaiphal(Nutmeg)       20    20    60   5.16
+860Ginger                40    50    20   5.16
+861Turmeric              25    60   100   5.16
+862Cashewnuts            70    40    60   6.16
+863Raisins               60    30    30   6.16
+864Coconut               20    10    30   5.16
+865Almond Nut            70    20    10   6.16
+866Arecanut             100    40   140   6.16
+867Pistachio Nut         90    20    20   6.16
+868Lemon Grass           25    40    40   5.66
+869Cotton               120    40    20   5.66
+870Jute                  80    40    40   5.66
+871Coffee               100    20    30   5.66
+872Sunflower             50    60    30   5.66
+873Rice                  80    40    40   5.68
+874Jowar(Sorghum)        80    40    40   5.68
+875Barley(JAV)           70    40    45   5.68
+876Maize                 80    40    20   5.68
+877Ragi( naachnnii)      50    40    20   5.68
+878Chickpeas(Channa)     40    60    80   5.68
+   French
+879Beans(Farasbi)       90    125   60    5.18
+   Fava beans (Papdi
+880- Val)               90    125   60    5.18
+881Lima beans(Pavta)    40     60   20    5.18
+   Cluster
+882Beans(Gavar)         25    50    25    5.18
+883Soyabean             20    60    20    5.68
+   Black eyed beans(
+884chawli)              20    60    20    5.68
+885Kidney beans         20    60    20    5.68
+   pigeon peas(Toor
+886Dal)                  20   60    20    5.68
+887Moth bean(Matki)      20   40    20    5.68
+888Mung beans            20   40    20    5.68
+889Green Peas            40   35    55    6.18
+890Horse Gram(kulthi)    20   60    20    6.18
+891Black Gram            40   60    20    5.18
+892Rapeseed (Mohri)      50   40    20    5.18
+893Coriander seeds       90   20    20    6.68
+894Mustard seeds        100   30    15    6.68
+895sesame seed           30   15    30    6.68
+896Cumin seeds            90   60     20   6.68
+897Lentils(Masoor Dal)    20   60     20   5.68
+898Brinjal                80   15     40   6.68
+899Beetroot              120   50    100   5.68
+900Bitter Gourd           60   10     20   6.68
+901Bottle Gourd          100   50     50   6.68
+902Capsicum              100   20     60   6.68
+903Cabbage               100   65     70   6.68
+904Carrot                 40   45     60   5.68
+905Cauliflower            80   70     50   6.68
+906Cucumber               60   60     85   6.68
+907Coriander leaves       10   20     20   6.68
+908Curry leaves           20   20     20   6.68
+   Drumstick –
+909moringa                40    20    10   6.68
+910Chili                 120    20    80   6.68
+911Lady Finger            80    10    40   6.68
+912Mushroom              100    50    60   6.68
+913Onion                 120    60    65   6.18
+914Potato                180    60    90   5.18
+915Pumpkin                80    50    30   5.68
+916Radish                 25   100    50   6.18
+917Olive                 100    60    30   6.68
+918Sweet Potato           90    20   120   5.18
+   Fenugreek
+919Leaf(methi)           30    25    40    6.18
+920Spinach               60    60    50    6.18
+921Ridgegourd            90    50    20    6.68
+922Gooseberry(Amla)      20    50    20    4.68
+   Jambun(Syzygium
+923cumini)               10    10    10    4.38
+   Ziziphus
+924mauritiana(Bor)       20    10    10    6.18
+   Garcinia
+925indica(kokam)          40    25    50   4.38
+926Tamarind               20    15    25   3.28
+927Tapioca(Suran)         50    50    50   5.68
+928Garlic                 50    10    60   5.68
+929Lemon                  20    10    10   3.28
+930Tomato                100    40    90   6.18
+931Ash Gourd              60    10    30   5.68
+932Pineapple             160    40   120   6.68
+933Pomegranate            20    10    40   5.68
+934Banana                100    75    50   6.68
+935Mango                  20    20    30   5.18
+936Grapes                 20   125   200   4.18
+937Jackfruit              75    40    50   5.18
+938Guava                  50    50    50   5.18
+939Water Melon           100    10    50   5.68
+940Musk Melon            100    10    50   5.68
+941Apricot                40    50    25   6.68
+942Apple                  20   125   200   6.68
+943Chickoo                40    30    60   5.18
+944Custard apple          40    20    40   6.68
+945Dates                  40   125    20   6.68
+946Figs                   20    60    20   5.18
+947Orange                 20    10    10   4.18
+948Papaya                 50    50    50   6.18
+949Aniseed               100    50    20   5.18
+950Asafoetida             90    40    20   5.18
+951Bay Leaf              100    50    25   5.18
+952Black Pepper          100    60    50   5.18
+953Cardamom               75    75   150   5.18
+954Cinnamon               20    20    25   5.18
+955Cloves                 20    20    60   5.18
+956Jaiphal(Nutmeg)        20    20    60   5.18
+957Ginger                 40    50    20   5.18
+958Turmeric               25    60   100   5.18
+959Cashewnuts             70    40    60   6.18
+960Raisins                60    30    30   6.18
+961Coconut                20    10    30   5.18
+ 962Almond Nut             70   20     10   6.18
+ 963Arecanut              100   40    140   6.18
+ 964Pistachio Nut          90   20     20   6.18
+ 965Lemon Grass            25   40     40   5.68
+ 966Cotton                120   40     20   5.68
+ 967Jute                   80   40     40   5.68
+ 968Coffee                100   20     30   5.68
+ 969Sunflower              50   60     30   5.68
+ 970Rice                   80   40     40   5.48
+ 971Jowar(Sorghum)         80   40     40   5.48
+ 972Barley(JAV)            70   40     45   5.48
+ 973Maize                  80   40     20   5.48
+ 974Ragi( naachnnii)       50   40     20   5.48
+ 975Chickpeas(Channa)      40   60     80   5.48
+    French
+ 976Beans(Farasbi)        90    125   60    4.98
+    Fava beans (Papdi
+ 977- Val)                90    125   60    4.98
+ 978Lima beans(Pavta)     40     60   20    4.98
+    Cluster
+ 979Beans(Gavar)          25    50    25    4.98
+ 980Soyabean              20    60    20    5.48
+    Black eyed beans(
+ 981chawli)               20    60    20    5.48
+ 982Kidney beans          20    60    20    5.48
+    pigeon peas(Toor
+ 983Dal)                   20   60     20   5.48
+ 984Moth bean(Matki)       20   40     20   5.48
+ 985Mung beans             20   40     20   5.48
+ 986Green Peas             40   35     55   5.98
+ 987Horse Gram(kulthi)     20   60     20   5.98
+ 988Black Gram             40   60     20   4.98
+ 989Rapeseed (Mohri)       50   40     20   4.98
+ 990Coriander seeds        90   20     20   6.48
+ 991Mustard seeds         100   30     15   6.48
+ 992sesame seed            30   15     30   6.48
+ 993Cumin seeds            90   60     20   6.48
+ 994Lentils(Masoor Dal)    20   60     20   5.48
+ 995Brinjal                80   15     40   6.48
+ 996Beetroot              120   50    100   5.48
+ 997Bitter Gourd           60   10     20   6.48
+ 998Bottle Gourd          100   50     50   6.48
+ 999Capsicum              100   20     60   6.48
+1000Cabbage               100   65     70   6.48
+1001Carrot                 40   45     60   5.48
+1002Cauliflower            80   70     50   6.48
+1003Cucumber               60   60     85   6.48
+1004Coriander leaves       10   20     20   6.48
+1005Curry leaves           20   20     20   6.48
+    Drumstick –
+1006moringa                40    20    10   6.48
+1007Chili                 120    20    80   6.48
+1008Lady Finger            80    10    40   6.48
+1009Mushroom              100    50    60   6.48
+1010Onion                 120    60    65   5.98
+1011Potato                180    60    90   4.98
+1012Pumpkin                80    50    30   5.48
+1013Radish                 25   100    50   5.98
+1014Olive                 100    60    30   6.48
+1015Sweet Potato           90    20   120   4.98
+    Fenugreek
+1016Leaf(methi)           30    25    40    5.98
+1017Spinach               60    60    50    5.98
+1018Ridgegourd            90    50    20    6.48
+1019Gooseberry(Amla)      20    50    20    4.48
+    Jambun(Syzygium
+1020cumini)               10    10    10    4.18
+    Ziziphus
+1021mauritiana(Bor)       20    10    10    5.98
+    Garcinia
+1022indica(kokam)         40    25    50    4.18
+1023Tamarind              20    15    25    3.08
+1024Tapioca(Suran)        50    50    50   5.48
+1025Garlic                50    10    60   5.48
+1026Lemon                 20    10    10   3.08
+1027Tomato               100    40    90   5.98
+1028Ash Gourd             60    10    30   5.48
+1029Pineapple            160    40   120   6.48
+1030Pomegranate           20    10    40   5.48
+1031Banana               100    75    50   6.48
+1032Mango                 20    20    30   4.98
+1033Grapes                20   125   200   3.98
+1034Jackfruit             75    40    50   4.98
+1035Guava                 50    50    50   4.98
+1036Water Melon          100    10    50   5.48
+1037Musk Melon           100    10    50   5.48
+1038Apricot               40    50    25   6.48
+1039Apple                 20   125   200   6.48
+1040Chickoo               40    30    60   4.98
+1041Custard apple         40    20    40   6.48
+1042Dates                 40   125    20   6.48
+1043Figs                  20    60    20   4.98
+1044Orange                20    10    10   3.98
+1045Papaya                50    50    50   5.98
+1046Aniseed              100    50    20   4.98
+1047Asafoetida            90    40    20   4.98
+1048Bay Leaf             100    50    25   4.98
+1049Black Pepper         100    60    50   4.98
+1050Cardamom              75    75   150   4.98
+1051Cinnamon              20    20    25   4.98
+1052Cloves                20    20    60   4.98
+1053Jaiphal(Nutmeg)       20    20    60   4.98
+1054Ginger                40    50    20   4.98
+1055Turmeric              25    60   100   4.98
+1056Cashewnuts            70    40    60   5.98
+1057Raisins               60    30    30   5.98
+1058Coconut               20    10    30   4.98
+1059Almond Nut            70    20    10   5.98
+1060Arecanut             100    40   140   5.98
+1061Pistachio Nut         90    20    20   5.98
+1062Lemon Grass           25    40    40   5.48
+1063Cotton               120    40    20   5.48
+1064Jute                  80    40    40   5.48
+1065Coffee               100    20    30   5.48
+1066Sunflower             50    60    30   5.48
+1067Rice                  80    40    40   5.46
+1068Jowar(Sorghum)        80    40    40   5.46
+1069Barley(JAV)           70    40    45   5.46
+1070Maize                 80    40    20   5.46
+1071Ragi( naachnnii)      50    40    20   5.46
+1072Chickpeas(Channa)     40    60    80   5.46
+    French
+1073Beans(Farasbi)       90    125   60    4.96
+    Fava beans (Papdi
+1074- Val)               90    125   60    4.96
+1075Lima beans(Pavta)    40     60   20    4.96
+    Cluster
+1076Beans(Gavar)         25    50    25    4.96
+1077Soyabean             20    60    20    5.46
+    Black eyed beans(
+1078chawli)              20    60    20    5.46
+1079Kidney beans         20    60    20    5.46
+    pigeon peas(Toor
+1080Dal)                  20   60    20    5.46
+1081Moth bean(Matki)      20   40    20    5.46
+1082Mung beans            20   40    20    5.46
+1083Green Peas            40   35    55    5.96
+1084Horse Gram(kulthi)    20   60    20    5.96
+1085Black Gram            40   60    20    4.96
+1086Rapeseed (Mohri)      50   40    20    4.96
+1087Coriander seeds       90   20    20    6.46
+1088Mustard seeds        100   30    15    6.46
+1089sesame seed           30   15    30    6.46
+1090Cumin seeds            90   60     20   6.46
+1091Lentils(Masoor Dal)    20   60     20   5.46
+1092Brinjal                80   15     40   6.46
+1093Beetroot              120   50    100   5.46
+1094Bitter Gourd           60   10     20   6.46
+1095Bottle Gourd          100   50     50   6.46
+1096Capsicum              100   20     60   6.46
+1097Cabbage               100   65     70   6.46
+1098Carrot                 40   45     60   5.46
+1099Cauliflower            80   70     50   6.46
+1100Cucumber              60    60    85    6.46
+1101Coriander leaves      10    20    20    6.46
+1102Curry leaves          20    20    20    6.46
+    Drumstick –
+1103moringa                40    20    10   6.46
+1104Chili                 120    20    80   6.46
+1105Lady Finger            80    10    40   6.46
+1106Mushroom              100    50    60   6.46
+1107Onion                 120    60    65   5.96
+1108Potato                180    60    90   4.96
+1109Pumpkin                80    50    30   5.46
+1110Radish                 25   100    50   5.96
+1111Olive                 100    60    30   6.46
+1112Sweet Potato           90    20   120   4.96
+    Fenugreek
+1113Leaf(methi)           30    25    40    5.96
+1114Spinach               60    60    50    5.96
+1115Ridgegourd            90    50    20    6.46
+1116Gooseberry(Amla)      20    50    20    4.46
+    Jambun(Syzygium
+1117cumini)               10    10    10    4.16
+    Ziziphus
+1118mauritiana(Bor)       20    10    10    5.96
+    Garcinia
+1119indica(kokam)          40    25    50   4.16
+1120Tamarind               20    15    25   3.06
+1121Tapioca(Suran)         50    50    50   5.46
+1122Garlic                 50    10    60   5.46
+1123Lemon                  20    10    10   3.06
+1124Tomato                100    40    90   5.96
+1125Ash Gourd              60    10    30   5.46
+1126Pineapple             160    40   120   6.46
+1127Pomegranate            20    10    40   5.46
+1128Banana                100    75    50   6.46
+1129Mango                  20    20    30   4.96
+1130Grapes                 20   125   200   3.96
+1131Jackfruit              75    40    50   4.96
+1132Guava                  50    50    50   4.96
+1133Water Melon           100    10    50   5.46
+1134Musk Melon            100    10    50   5.46
+1135Apricot                40    50    25   6.46
+1136Apple                  20   125   200   6.46
+1137Chickoo                40    30    60   4.96
+1138Custard apple          40    20    40   6.46
+1139Dates                  40   125    20   6.46
+1140Figs                   20    60    20   4.96
+1141Orange                 20    10    10   3.96
+1142Papaya                 50    50    50   5.96
+1143Aniseed               100    50    20   4.96
+1144Asafoetida             90    40    20   4.96
+1145Bay Leaf              100    50    25   4.96
+1146Black Pepper          100    60    50   4.96
+1147Cardamom               75    75   150   4.96
+1148Cinnamon               20    20    25   4.96
+1149Cloves                 20    20    60   4.96
+1150Jaiphal(Nutmeg)        20    20    60   4.96
+1151Ginger                 40    50    20   4.96
+1152Turmeric               25    60   100   4.96
+1153Cashewnuts             70    40    60   5.96
+1154Raisins                60   30     30   5.96
+1155Coconut                20   10     30   4.96
+1156Almond Nut             70   20     10   5.96
+1157Arecanut              100   40    140   5.96
+1158Pistachio Nut          90   20     20   5.96
+1159Lemon Grass            25   40     40   5.46
+1160Cotton                120   40     20   5.46
+1161Jute                   80   40     40   5.46
+1162Coffee                100   20     30   5.46
+1163Sunflower              50   60     30   5.46
+1164Rice                   80   40     40   5.44
+1165Jowar(Sorghum)         80   40     40   5.44
+
+1166Barley(JAV)           70    40    45    5.44
+1167Maize                 80    40    20    5.44
+1168Ragi( naachnnii)      50    40    20    5.44
+1169Chickpeas(Channa)     40    60    80    5.44
+    French
+1170Beans(Farasbi)        90    125   60    4.94
+    Fava beans (Papdi
+1171- Val)                90    125   60    4.94
+1172Lima beans(Pavta)     40     60   20    4.94
+    Cluster
+1173Beans(Gavar)          25    50    25    4.94
+1174Soyabean              20    60    20    5.44
+    Black eyed beans(
+1175chawli)               20    60    20    5.44
+1176Kidney beans          20    60    20    5.44
+    pigeon peas(Toor
+1177Dal)                   20   60     20   5.44
+1178Moth bean(Matki)       20   40     20   5.44
+1179Mung beans             20   40     20   5.44
+1180Green Peas             40   35     55   5.94
+1181Horse Gram(kulthi)     20   60     20   5.94
+1182Black Gram             40   60     20   4.94
+1183Rapeseed (Mohri)       50   40     20   4.94
+1184Coriander seeds        90   20     20   6.44
+1185Mustard seeds         100   30     15   6.44
+1186sesame seed            30   15     30   6.44
+1187Cumin seeds            90   60     20   6.44
+1188Lentils(Masoor Dal)    20   60     20   5.44
+1189Brinjal                80   15     40   6.44
+1190Beetroot              120   50    100   5.44
+1191Bitter Gourd           60   10     20   6.44
+1192Bottle Gourd          100   50     50   6.44
+1193Capsicum              100   20     60   6.44
+1194Cabbage               100   65     70   6.44
+1195Carrot                 40   45     60   5.44
+1196Cauliflower            80   70     50   6.44
+1197Cucumber               60   60     85   6.44
+1198Coriander leaves       10   20     20   6.44
+1199Curry leaves           20   20     20   6.44
+    Drumstick –
+1200moringa                40    20    10   6.44
+1201Chili                 120    20    80   6.44
+1202Lady Finger            80    10    40   6.44
+1203Mushroom              100    50    60   6.44
+1204Onion                 120    60    65   5.94
+1205Potato                180    60    90   4.94
+1206Pumpkin                80    50    30   5.44
+1207Radish                 25   100    50   5.94
+1208Olive                 100    60    30   6.44
+1209Sweet Potato           90    20   120   4.94
+    Fenugreek
+1210Leaf(methi)           30    25    40    5.94
+1211Spinach               60    60    50    5.94
+1212Ridgegourd            90    50    20    6.44
+1213Gooseberry(Amla)      20    50    20    4.44
+    Jambun(Syzygium
+1214cumini)               10    10    10    4.14
+    Ziziphus
+1215mauritiana(Bor)       20    10    10    5.94
+    Garcinia
+1216indica(kokam)         40    25    50   4.14
+1217Tamarind              20    15    25   3.04
+1218Tapioca(Suran)        50    50    50   5.44
+1219Garlic                50    10    60   5.44
+1220Lemon                 20    10    10   3.04
+1221Tomato               100    40    90   5.94
+1222Ash Gourd             60    10    30   5.44
+1223Pineapple            160    40   120   6.44
+1224Pomegranate           20    10    40   5.44
+1225Banana               100    75    50   6.44
+1226Mango                 20    20    30   4.94
+1227Grapes                20   125   200   3.94
+
+1228Jackfruit             75    40    50   4.94
+1229Guava                 50    50    50   4.94
+1230Water Melon          100    10    50   5.44
+1231Musk Melon           100    10    50   5.44
+1232Apricot               40    50    25   6.44
+1233Apple                 20   125   200   6.44
+1234Chickoo               40    30    60   4.94
+1235Custard apple         40    20    40   6.44
+1236Dates                 40   125    20   6.44
+1237Figs                  20    60    20   4.94
+1238Orange                20    10    10   3.94
+1239Papaya                50    50    50   5.94
+1240Aniseed              100    50    20   4.94
+1241Asafoetida            90    40    20   4.94
+1242Bay Leaf             100    50    25   4.94
+1243Black Pepper         100    60    50   4.94
+1244Cardamom              75    75   150   4.94
+1245Cinnamon              20    20    25   4.94
+1246Cloves                20    20    60   4.94
+1247Jaiphal(Nutmeg)       20    20    60   4.94
+1248Ginger                40    50    20   4.94
+1249Turmeric              25    60   100   4.94
+1250Cashewnuts            70    40    60   5.94
+1251Raisins               60    30    30   5.94
+1252Coconut               20    10    30   4.94
+1253Almond Nut            70    20    10   5.94
+1254Arecanut             100    40   140   5.94
+1255Pistachio Nut         90    20    20   5.94
+1256Lemon Grass           25    40    40   5.44
+1257Cotton               120    40    20   5.44
+1258Jute                  80    40    40   5.44
+1259Coffee               100    20    30   5.44
+1260Sunflower             50    60    30   5.44
+1261Rice                  80    40    40   5.42
+1262Jowar(Sorghum)        80    40    40   5.42
+1263Barley(JAV)           70    40    45   5.42
+1264Maize                 80    40    20   5.42
+1265Ragi( naachnnii)      50    40    20   5.42
+1266Chickpeas(Channa)     40    60    80   5.42
+    French
+1267Beans(Farasbi)       90    125   60    4.92
+    Fava beans (Papdi
+1268- Val)               90    125   60    4.92
+1269Lima beans(Pavta)    40     60   20    4.92
+    Cluster
+1270Beans(Gavar)         25    50    25    4.92
+1271Soyabean             20    60    20    5.42
+    Black eyed beans(
+1272chawli)              20    60    20    5.42
+1273Kidney beans         20    60    20    5.42
+    pigeon peas(Toor
+1274Dal)                 20    60    20    5.42
+1275Moth bean(Matki)     20    40    20    5.42
+1276Mung beans           20    40    20    5.42
+1277Green Peas           40    35    55    5.92
+1278Horse Gram(kulthi)   20    60    20    5.92
+1279Black Gram           40    60    20    4.92
+1280Rapeseed (Mohri)       50   40     20   4.92
+1281Coriander seeds        90   20     20   6.42
+1282Mustard seeds         100   30     15   6.42
+1283sesame seed            30   15     30   6.42
+1284Cumin seeds            90   60     20   6.42
+1285Lentils(Masoor Dal)    20   60     20   5.42
+1286Brinjal                80   15     40   6.42
+1287Beetroot              120   50    100   5.42
+1288Bitter Gourd           60   10     20   6.42
+1289Bottle Gourd          100   50     50   6.42
+1290Capsicum              100   20     60   6.42
+1291Cabbage               100   65     70   6.42
+1292Carrot                 40   45     60   5.42
+1293Cauliflower            80   70     50   6.42
+1294Cucumber               60   60     85   6.42
+1295Coriander leaves       10   20     20   6.42
+1296Curry leaves           20   20     20   6.42
+    Drumstick –
+1297moringa                40    20    10   6.42
+1298Chili                 120    20    80   6.42
+1299Lady Finger            80    10    40   6.42
+1300Mushroom              100    50    60   6.42
+1301Onion                 120    60    65   5.92
+1302Potato                180    60    90   4.92
+1303Pumpkin                80    50    30   5.42
+1304Radish                 25   100    50   5.92
+1305Olive                 100    60    30   6.42
+1306Sweet Potato           90    20   120   4.92
+    Fenugreek
+1307Leaf(methi)           30    25    40    5.92
+1308Spinach               60    60    50    5.92
+1309Ridgegourd            90    50    20    6.42
+1310Gooseberry(Amla)      20    50    20    4.42
+    Jambun(Syzygium
+1311cumini)               10    10    10    4.12
+    Ziziphus
+1312mauritiana(Bor)       20    10    10    5.92
+    Garcinia
+1313indica(kokam)          40    25    50   4.12
+1314Tamarind               20    15    25   3.02
+1315Tapioca(Suran)         50    50    50   5.42
+1316Garlic                 50    10    60   5.42
+1317Lemon                  20    10    10   3.02
+1318Tomato                100    40    90   5.92
+1319Ash Gourd              60    10    30   5.42
+1320Pineapple             160    40   120   6.42
+1321Pomegranate            20    10    40   5.42
+1322Banana                100    75    50   6.42
+1323Mango                  20    20    30   4.92
+1324Grapes                 20   125   200   3.92
+1325Jackfruit              75    40    50   4.92
+1326Guava                  50    50    50   4.92
+1327Water Melon           100    10    50   5.42
+1328Musk Melon            100    10    50   5.42
+1329Apricot                40    50    25   6.42
+1330Apple                  20   125   200   6.42
+1331Chickoo                40    30    60   4.92
+1332Custard apple          40    20    40   6.42
+1333Dates                  40   125    20   6.42
+1334Figs                   20    60    20   4.92
+1335Orange                 20    10    10   3.92
+1336Papaya                 50    50    50   5.92
+1337Aniseed               100    50    20   4.92
+1338Asafoetida             90    40    20   4.92
+1339Bay Leaf              100    50    25   4.92
+1340Black Pepper          100    60    50   4.92
+1341Cardamom               75    75   150   4.92
+1342Cinnamon               20    20    25   4.92
+1343Cloves                 20    20    60   4.92
+1344Jaiphal(Nutmeg)        20    20    60   4.92
+1345Ginger                 40    50    20   4.92
+1346Turmeric               25   60    100   4.92
+1347Cashewnuts             70   40     60   5.92
+1348Raisins                60   30     30   5.92
+1349Coconut                20   10     30   4.92
+1350Almond Nut             70   20     10   5.92
+1351Arecanut              100   40    140   5.92
+1352Pistachio Nut          90   20     20   5.92
+1353Lemon Grass            25   40     40   5.42
+1354Cotton                120   40     20   5.42
+1355Jute                   80   40     40   5.42
+1356Coffee                100   20     30   5.42
+1357Sunflower              50   60     30   5.42
+1358Rice                   80   40     40    5.4
+1359Jowar(Sorghum)         80   40     40    5.4
+1360Barley(JAV)            70   40     45    5.4
+1361Maize                  80   40     20    5.4
+1362Ragi( naachnnii)       50   40     20    5.4
+1363Chickpeas(Channa)      40   60     80    5.4
+    French
+1364Beans(Farasbi)        90    125   60     4.9
+    Fava beans (Papdi
+1365- Val)                90    125   60     4.9
+1366Lima beans(Pavta)     40     60   20     4.9
+    Cluster
+1367Beans(Gavar)          25    50    25     4.9
+1368Soyabean              20    60    20     5.4
+    Black eyed beans(
+1369chawli)               20    60    20     5.4
+1370Kidney beans          20    60    20     5.4
+    pigeon peas(Toor
+1371Dal)                   20   60     20    5.4
+1372Moth bean(Matki)       20   40     20    5.4
+1373Mung beans             20   40     20    5.4
+1374Green Peas             40   35     55    5.9
+1375Horse Gram(kulthi)     20   60     20    5.9
+1376Black Gram             40   60     20    4.9
+1377Rapeseed (Mohri)       50   40     20    4.9
+1378Coriander seeds        90   20     20    6.4
+1379Mustard seeds         100   30     15    6.4
+1380sesame seed            30   15     30    6.4
+1381Cumin seeds            90   60     20    6.4
+1382Lentils(Masoor Dal)    20   60     20    5.4
+1383Brinjal                80   15     40    6.4
+1384Beetroot              120   50    100    5.4
+1385Bitter Gourd           60   10     20    6.4
+1386Bottle Gourd          100   50     50    6.4
+1387Capsicum              100   20     60    6.4
+1388Cabbage               100   65     70    6.4
+1389Carrot                 40   45     60    5.4
+1390Cauliflower            80   70     50    6.4
+1391Cucumber               60   60     85    6.4
+1392Coriander leaves       10   20     20    6.4
+1393Curry leaves           20   20     20    6.4
+    Drumstick –
+1394moringa                40    20    10    6.4
+1395Chili                 120    20    80    6.4
+1396Lady Finger            80    10    40    6.4
+1397Mushroom              100    50    60    6.4
+1398Onion                 120    60    65    5.9
+1399Potato                180    60    90    4.9
+1400Pumpkin                80    50    30    5.4
+1401Radish                 25   100    50    5.9
+1402Olive                 100    60    30    6.4
+1403Sweet Potato           90    20   120    4.9
+    Fenugreek
+1404Leaf(methi)           30    25    40     5.9
+1405Spinach               60    60    50     5.9
+1406Ridgegourd            90    50    20     6.4
+1407Gooseberry(Amla)      20    50    20     4.4
+    Jambun(Syzygium
+1408cumini)               10    10    10     4.1
+    Ziziphus
+1409mauritiana(Bor)      20    10    10     5.9
+    Garcinia
+1410indica(kokam)         40    25    50    4.1
+1411Tamarind              20    15    25      3
+1412Tapioca(Suran)        50    50    50    5.4
+1413Garlic                50    10    60    5.4
+1414Lemon                 20    10    10      3
+1415Tomato               100    40    90    5.9
+1416Ash Gourd             60    10    30    5.4
+1417Pineapple            160    40   120    6.4
+1418Pomegranate           20    10    40    5.4
+1419Banana               100    75    50    6.4
+1420Mango                 20    20    30    4.9
+1421Grapes                20   125   200    3.9
+1422Jackfruit             75    40    50    4.9
+1423Guava                 50    50    50    4.9
+1424Water Melon          100    10    50    5.4
+1425Musk Melon           100    10    50    5.4
+1426Apricot               40    50    25    6.4
+1427Apple                 20   125   200    6.4
+1428Chickoo               40    30    60    4.9
+1429Custard apple         40    20    40    6.4
+1430Dates                 40   125    20    6.4
+1431Figs                  20    60    20    4.9
+1432Orange                20    10    10    3.9
+1433Papaya                50    50    50    5.9
+1434Aniseed              100    50    20    4.9
+1435Asafoetida            90    40    20    4.9
+1436Bay Leaf             100    50    25    4.9
+1437Black Pepper         100    60    50    4.9
+1438Cardamom              75    75   150    4.9
+1439Cinnamon              20    20    25    4.9
+1440Cloves                20    20    60    4.9
+1441Jaiphal(Nutmeg)       20    20    60    4.9
+1442Ginger                40    50    20    4.9
+1443Turmeric              25    60   100    4.9
+1444Cashewnuts            70    40    60    5.9
+1445Raisins               60    30    30    5.9
+1446Coconut               20    10    30    4.9
+1447Almond Nut            70    20    10    5.9
+1448Arecanut             100    40   140    5.9
+1449Pistachio Nut         90    20    20    5.9
+1450Lemon Grass           25    40    40    5.4
+1451Cotton               120    40    20    5.4
+1452Jute                  80    40    40    5.4
+1453Coffee               100    20    30    5.4
+1454Sunflower             50    60    30    5.4
+1455Rice                  80    40    40   5.38
+1456Jowar(Sorghum)        80    40    40   5.38
+1457Barley(JAV)           70    40    45   5.38
+1458Maize                 80    40    20   5.38
+1459Ragi( naachnnii)      50    40    20   5.38
+1460Chickpeas(Channa)     40    60    80   5.38
+    French
+1461Beans(Farasbi)       90    125   60    4.88
+    Fava beans (Papdi
+1462- Val)               90    125   60    4.88
+1463Lima beans(Pavta)    40     60   20    4.88
+    Cluster
+1464Beans(Gavar)         25    50    25    4.88
+1465Soyabean             20    60    20    5.38
+    Black eyed beans(
+1466chawli)              20    60    20    5.38
+1467Kidney beans         20    60    20    5.38
+    pigeon peas(Toor
+1468Dal)                 20    60    20    5.38
+1469Moth bean(Matki)     20    40    20    5.38
+1470Mung beans           20    40    20    5.38
+1471Green Peas           40    35    55    5.88
+1472Horse Gram(kulthi)   20    60    20    5.88
+1473Black Gram             40   60     20   4.88
+1474Rapeseed (Mohri)       50   40     20   4.88
+1475Coriander seeds        90   20     20   6.38
+1476Mustard seeds         100   30     15   6.38
+1477sesame seed            30   15     30   6.38
+1478Cumin seeds            90   60     20   6.38
+1479Lentils(Masoor Dal)    20   60     20   5.38
+1480Brinjal                80   15     40   6.38
+1481Beetroot              120   50    100   5.38
+1482Bitter Gourd           60   10     20   6.38
+1483Bottle Gourd          100   50     50   6.38
+1484Capsicum              100   20     60   6.38
+1485Cabbage               100   65     70   6.38
+1486Carrot                 40   45     60   5.38
+1487Cauliflower            80   70     50   6.38
+1488Cucumber               60   60     85   6.38
+1489Coriander leaves      10    20    20    6.38
+1490Curry leaves          20    20    20    6.38
+    Drumstick –
+1491moringa                40    20    10   6.38
+1492Chili                 120    20    80   6.38
+1493Lady Finger            80    10    40   6.38
+1494Mushroom              100    50    60   6.38
+1495Onion                 120    60    65   5.88
+1496Potato                180    60    90   4.88
+1497Pumpkin                80    50    30   5.38
+1498Radish                 25   100    50   5.88
+1499Olive                 100    60    30   6.38
+1500Sweet Potato           90    20   120   4.88
+    Fenugreek
+1501Leaf(methi)           30    25    40    5.88
+1502Spinach               60    60    50    5.88
+1503Ridgegourd            90    50    20    6.38
+1504Gooseberry(Amla)      20    50    20    4.38
+    Jambun(Syzygium
+1505cumini)               10    10    10    4.08
+    Ziziphus
+1506mauritiana(Bor)       20    10    10    5.88
+    Garcinia
+1507indica(kokam)          40    25    50   4.08
+1508Tamarind               20    15    25   2.98
+1509Tapioca(Suran)         50    50    50   5.38
+1510Garlic                 50    10    60   5.38
+1511Lemon                  20    10    10   2.98
+1512Tomato                100    40    90   5.88
+1513Ash Gourd              60    10    30   5.38
+1514Pineapple             160    40   120   6.38
+1515Pomegranate            20    10    40   5.38
+1516Banana                100    75    50   6.38
+1517Mango                  20    20    30   4.88
+1518Grapes                 20   125   200   3.88
+1519Jackfruit              75    40    50   4.88
+1520Guava                  50    50    50   4.88
+1521Water Melon           100    10    50   5.38
+1522Musk Melon            100    10    50   5.38
+1523Apricot                40    50    25   6.38
+1524Apple                  20   125   200   6.38
+1525Chickoo                40    30    60   4.88
+1526Custard apple          40    20    40   6.38
+1527Dates                  40   125    20   6.38
+1528Figs                   20    60    20   4.88
+1529Orange                 20    10    10   3.88
+1530Papaya                 50    50    50   5.88
+1531Aniseed               100    50    20   4.88
+1532Asafoetida             90    40    20   4.88
+1533Bay Leaf              100    50    25   4.88
+1534Black Pepper          100    60    50   4.88
+1535Cardamom               75    75   150   4.88
+1536Cinnamon               20    20    25   4.88
+1537Cloves                 20    20    60   4.88
+1538Jaiphal(Nutmeg)        20   20     60   4.88
+1539Ginger                 40   50     20   4.88
+1540Turmeric               25   60    100   4.88
+1541Cashewnuts             70   40     60   5.88
+1542Raisins                60   30     30   5.88
+1543Coconut                20   10     30   4.88
+1544Almond Nut             70   20     10   5.88
+1545Arecanut              100   40    140   5.88
+1546Pistachio Nut          90   20     20   5.88
+1547Lemon Grass            25   40     40   5.38
+1548Cotton                120   40     20   5.38
+1549Jute                   80   40     40   5.38
+1550Coffee                100   20     30   5.38
+1551Sunflower              50   60     30   5.38
+1552Rice                   80   40     40   5.36
+1553Jowar(Sorghum)         80   40     40   5.36
+1554Barley(JAV)            70   40     45   5.36
+1555Maize                 80    40    20    5.36
+1556Ragi( naachnnii)      50    40    20    5.36
+1557Chickpeas(Channa)     40    60    80    5.36
+    French
+1558Beans(Farasbi)        90    125   60    4.86
+    Fava beans (Papdi
+1559- Val)                90    125   60    4.86
+1560Lima beans(Pavta)     40     60   20    4.86
+    Cluster
+1561Beans(Gavar)          25    50    25    4.86
+1562Soyabean              20    60    20    5.36
+    Black eyed beans(
+1563chawli)               20    60    20    5.36
+1564Kidney beans          20    60    20    5.36
+    pigeon peas(Toor
+1565Dal)                   20   60     20   5.36
+1566Moth bean(Matki)       20   40     20   5.36
+1567Mung beans             20   40     20   5.36
+1568Green Peas             40   35     55   5.86
+1569Horse Gram(kulthi)     20   60     20   5.86
+1570Black Gram             40   60     20   4.86
+1571Rapeseed (Mohri)       50   40     20   4.86
+1572Coriander seeds        90   20     20   6.36
+1573Mustard seeds         100   30     15   6.36
+1574sesame seed            30   15     30   6.36
+1575Cumin seeds            90   60     20   6.36
+1576Lentils(Masoor Dal)    20   60     20   5.36
+1577Brinjal                80   15     40   6.36
+1578Beetroot              120   50    100   5.36
+1579Bitter Gourd           60   10     20   6.36
+1580Bottle Gourd          100   50     50   6.36
+1581Capsicum              100   20     60   6.36
+1582Cabbage               100   65     70   6.36
+1583Carrot                 40   45     60   5.36
+1584Cauliflower            80   70     50   6.36
+1585Cucumber               60   60     85   6.36
+1586Coriander leaves       10   20     20   6.36
+1587Curry leaves           20   20     20   6.36
+    Drumstick –
+1588moringa                40    20    10   6.36
+1589Chili                 120    20    80   6.36
+1590Lady Finger            80    10    40   6.36
+1591Mushroom              100    50    60   6.36
+1592Onion                 120    60    65   5.86
+1593Potato                180    60    90   4.86
+1594Pumpkin                80    50    30   5.36
+1595Radish                 25   100    50   5.86
+1596Olive                 100    60    30   6.36
+1597Sweet Potato           90    20   120   4.86
+    Fenugreek
+1598Leaf(methi)           30    25    40    5.86
+1599Spinach               60    60    50    5.86
+1600Ridgegourd            90    50    20    6.36
+1601Gooseberry(Amla)      20    50    20    4.36
+    Jambun(Syzygium
+1602cumini)             10    10    10    4.06
+    Ziziphus
+1603mauritiana(Bor)     20    10    10    5.86
+    Garcinia
+1604indica(kokam)        40    25    50   4.06
+1605Tamarind             20    15    25   2.96
+1606Tapioca(Suran)       50    50    50   5.36
+1607Garlic               50    10    60   5.36
+1608Lemon                20    10    10   2.96
+1609Tomato              100    40    90   5.86
+1610Ash Gourd            60    10    30   5.36
+1611Pineapple           160    40   120   6.36
+1612Pomegranate          20    10    40   5.36
+1613Banana              100    75    50   6.36
+1614Mango                20    20    30   4.86
+1615Grapes               20   125   200   3.86
+1616Jackfruit            75    40    50   4.86
+
+1617Guava                50    50    50   4.86
+1618Water Melon         100    10    50   5.36
+1619Musk Melon          100    10    50   5.36
+1620Apricot              40    50    25   6.36
+1621Apple                20   125   200   6.36
+1622Chickoo              40    30    60   4.86
+1623Custard apple        40    20    40   6.36
+1624Dates                40   125    20   6.36
+1625Figs                 20    60    20   4.86
+1626Orange               20    10    10   3.86
+1627Papaya               50    50    50   5.86
+1628Aniseed             100    50    20   4.86
+1629Asafoetida           90    40    20   4.86
+1630Bay Leaf            100    50    25   4.86
+1631Black Pepper        100    60    50   4.86
+1632Cardamom             75    75   150   4.86
+1633Cinnamon             20    20    25   4.86
+1634Cloves               20    20    60   4.86
+1635Jaiphal(Nutmeg)      20    20    60   4.86
+1636Ginger               40    50    20   4.86
+1637Turmeric             25    60   100   4.86
+1638Cashewnuts           70    40    60   5.86
+1639Raisins              60    30    30   5.86
+1640Coconut              20    10    30   4.86
+1641Almond Nut           70    20    10   5.86
+1642Arecanut            100    40   140   5.86
+1643Pistachio Nut        90    20    20   5.86
+1644Lemon Grass          25    40    40   5.36
+1645Cotton              120    40    20   5.36
+1646Jute                 80    40    40   5.36
+1647Coffee              100    20    30   5.36
+1648Sunflower            50    60    30   5.36
+1649Rice                 80    40    40   5.34
+1650Jowar(Sorghum)       80    40    40   5.34
+1651Barley(JAV)          70    40    45   5.34
+1652Maize                80    40    20   5.34
+1653Ragi( naachnnii)     50    40    20   5.34
+1654Chickpeas(Channa)    40    60    80   5.34
+    French
+1655Beans(Farasbi)      90    125   60    4.84
+    Fava beans (Papdi
+1656- Val)              90    125   60    4.84
+1657Lima beans(Pavta)   40     60   20    4.84
+    Cluster
+1658Beans(Gavar)        25    50    25    4.84
+1659Soyabean            20    60    20    5.34
+    Black eyed beans(
+1660chawli)             20    60    20    5.34
+1661Kidney beans        20    60    20    5.34
+    pigeon peas(Toor
+1662Dal)                20    60    20    5.34
+1663Moth bean(Matki)    20    40    20    5.34
+1664Mung beans          20    40    20    5.34
+1665Green Peas             40   35     55   5.84
+1666Horse Gram(kulthi)     20   60     20   5.84
+1667Black Gram             40   60     20   4.84
+1668Rapeseed (Mohri)       50   40     20   4.84
+1669Coriander seeds        90   20     20   6.34
+1670Mustard seeds         100   30     15   6.34
+1671sesame seed            30   15     30   6.34
+1672Cumin seeds            90   60     20   6.34
+1673Lentils(Masoor Dal)    20   60     20   5.34
+1674Brinjal                80   15     40   6.34
+1675Beetroot              120   50    100   5.34
+1676Bitter Gourd           60   10     20   6.34
+1677Bottle Gourd          100   50     50   6.34
+1678Capsicum              100   20     60   6.34
+1679Cabbage               100   65     70   6.34
+1680Carrot                 40   45     60   5.34
+1681Cauliflower            80   70     50   6.34
+1682Cucumber               60   60     85   6.34
+
+1683Coriander leaves      10    20    20    6.34
+1684Curry leaves          20    20    20    6.34
+    Drumstick –
+1685moringa                40    20    10   6.34
+1686Chili                 120    20    80   6.34
+1687Lady Finger            80    10    40   6.34
+1688Mushroom              100    50    60   6.34
+1689Onion                 120    60    65   5.84
+1690Potato                180    60    90   4.84
+1691Pumpkin                80    50    30   5.34
+1692Radish                 25   100    50   5.84
+1693Olive                 100    60    30   6.34
+1694Sweet Potato           90    20   120   4.84
+    Fenugreek
+1695Leaf(methi)           30    25    40    5.84
+1696Spinach               60    60    50    5.84
+1697Ridgegourd            90    50    20    6.34
+1698Gooseberry(Amla)      20    50    20    4.34
+    Jambun(Syzygium
+1699cumini)               10    10    10    4.04
+    Ziziphus
+1700mauritiana(Bor)       20    10    10    5.84
+    Garcinia
+1701indica(kokam)          40    25    50   4.04
+1702Tamarind               20    15    25   2.94
+1703Tapioca(Suran)         50    50    50   5.34
+1704Garlic                 50    10    60   5.34
+1705Lemon                  20    10    10   2.94
+1706Tomato                100    40    90   5.84
+1707Ash Gourd              60    10    30   5.34
+1708Pineapple             160    40   120   6.34
+1709Pomegranate            20    10    40   5.34
+1710Banana                100    75    50   6.34
+1711Mango                  20    20    30   4.84
+1712Grapes                 20   125   200   3.84
+1713Jackfruit              75    40    50   4.84
+1714Guava                  50    50    50   4.84
+1715Water Melon           100    10    50   5.34
+1716Musk Melon            100    10    50   5.34
+1717Apricot                40    50    25   6.34
+1718Apple                  20   125   200   6.34
+1719Chickoo                40    30    60   4.84
+1720Custard apple          40    20    40   6.34
+1721Dates                  40   125    20   6.34
+1722Figs                   20    60    20   4.84
+1723Orange                 20    10    10   3.84
+1724Papaya                 50    50    50   5.84
+1725Aniseed               100    50    20   4.84
+1726Asafoetida             90    40    20   4.84
+1727Bay Leaf              100    50    25   4.84
+1728Black Pepper          100    60    50   4.84
+1729Cardamom               75    75   150   4.84
+1730Cinnamon               20   20     25   4.84
+1731Cloves                 20   20     60   4.84
+1732Jaiphal(Nutmeg)        20   20     60   4.84
+1733Ginger                 40   50     20   4.84
+1734Turmeric               25   60    100   4.84
+1735Cashewnuts             70   40     60   5.84
+1736Raisins                60   30     30   5.84
+1737Coconut                20   10     30   4.84
+1738Almond Nut             70   20     10   5.84
+1739Arecanut              100   40    140   5.84
+1740Pistachio Nut          90   20     20   5.84
+1741Lemon Grass            25   40     40   5.34
+1742Cotton                120   40     20   5.34
+1743Jute                   80   40     40   5.34
+1744Coffee                100   20     30   5.34
+1745Sunflower              50   60     30   5.34
+1746Rice                   80   40     40   5.32
+1747Jowar(Sorghum)         80   40     40   5.32
+1748Barley(JAV)            70   40     45   5.32
+1749Maize                  80   40     20   5.32
+1750Ragi( naachnnii)       50   40     20   5.32
+1751Chickpeas(Channa)      40   60     80   5.32
+    French
+1752Beans(Farasbi)        90    125   60    4.82
+    Fava beans (Papdi
+1753- Val)                90    125   60    4.82
+1754Lima beans(Pavta)     40     60   20    4.82
+    Cluster
+1755Beans(Gavar)          25    50    25    4.82
+1756Soyabean              20    60    20    5.32
+    Black eyed beans(
+1757chawli)               20    60    20    5.32
+1758Kidney beans          20    60    20    5.32
+    pigeon peas(Toor
+1759Dal)                   20   60     20   5.32
+1760Moth bean(Matki)       20   40     20   5.32
+1761Mung beans             20   40     20   5.32
+1762Green Peas             40   35     55   5.82
+1763Horse Gram(kulthi)     20   60     20   5.82
+1764Black Gram             40   60     20   4.82
+1765Rapeseed (Mohri)       50   40     20   4.82
+1766Coriander seeds        90   20     20   6.32
+1767Mustard seeds         100   30     15   6.32
+1768sesame seed            30   15     30   6.32
+1769Cumin seeds            90   60     20   6.32
+1770Lentils(Masoor Dal)    20   60     20   5.32
+1771Brinjal                80   15     40   6.32
+1772Beetroot              120   50    100   5.32
+1773Bitter Gourd           60   10     20   6.32
+1774Bottle Gourd          100   50     50   6.32
+1775Capsicum              100   20     60   6.32
+1776Cabbage               100   65     70   6.32
+1777Carrot                 40   45     60   5.32
+1778Cauliflower            80   70     50   6.32
+1779Cucumber               60   60     85   6.32
+1780Coriander leaves       10   20     20   6.32
+1781Curry leaves           20   20     20   6.32
+    Drumstick –
+1782moringa                40    20    10   6.32
+1783Chili                 120    20    80   6.32
+1784Lady Finger            80    10    40   6.32
+1785Mushroom              100    50    60   6.32
+1786Onion                 120    60    65   5.82
+1787Potato                180    60    90   4.82
+1788Pumpkin                80    50    30   5.32
+1789Radish                 25   100    50   5.82
+1790Olive                 100    60    30   6.32
+1791Sweet Potato           90    20   120   4.82
+    Fenugreek
+1792Leaf(methi)           30    25    40    5.82
+1793Spinach               60    60    50    5.82
+1794Ridgegourd         90    50    20    6.32
+1795Gooseberry(Amla)   20    50    20    4.32
+    Jambun(Syzygium
+1796cumini)            10    10    10    4.02
+    Ziziphus
+1797mauritiana(Bor)    20    10    10    5.82
+    Garcinia
+1798indica(kokam)       40    25    50   4.02
+1799Tamarind            20    15    25   2.92
+1800Tapioca(Suran)      50    50    50   5.32
+1801Garlic              50    10    60   5.32
+1802Lemon               20    10    10   2.92
+1803Tomato             100    40    90   5.82
+1804Ash Gourd           60    10    30   5.32
+1805Pineapple          160    40   120   6.32
+1806Pomegranate         20    10    40   5.32
+1807Banana             100    75    50   6.32
+1808Mango               20    20    30   4.82
+1809Grapes              20   125   200   3.82
+1810Jackfruit           75    40    50   4.82
+1811Guava               50    50    50   4.82
+1812Water Melon        100    10    50   5.32
+1813Musk Melon         100    10    50   5.32
+1814Apricot             40    50    25   6.32
+1815Apple               20   125   200   6.32
+1816Chickoo             40    30    60   4.82
+1817Custard apple       40    20    40   6.32
+1818Dates               40   125    20   6.32
+1819Figs                20    60    20   4.82
+1820Orange              20    10    10   3.82
+1821Papaya              50    50    50   5.82
+1822Aniseed            100    50    20   4.82
+1823Asafoetida          90    40    20   4.82
+1824Bay Leaf           100    50    25   4.82
+1825Black Pepper       100    60    50   4.82
+1826Cardamom            75    75   150   4.82
+1827Cinnamon            20    20    25   4.82
+1828Cloves              20    20    60   4.82
+1829Jaiphal(Nutmeg)     20    20    60   4.82
+1830Ginger              40    50    20   4.82
+1831Turmeric            25    60   100   4.82
+1832Cashewnuts          70    40    60   5.82
+1833Raisins             60    30    30   5.82
+1834Coconut             20    10    30   4.82
+1835Almond Nut          70    20    10   5.82
+1836Arecanut           100    40   140   5.82
+1837Pistachio Nut       90    20    20   5.82
+1838Lemon Grass         25    40    40   5.32
+1839Cotton             120    40    20   5.32
+1840Jute                80    40    40   5.32
+1841Coffee             100    20    30   5.32
+1842Sunflower           50    60    30   5.32
+

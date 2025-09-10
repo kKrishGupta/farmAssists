@@ -1,0 +1,34 @@
+# Core ML / Data
+numpy
+pandas
+scikit-learn
+joblib
+
+# Transformers (Hugging Face)
+transformers
+datasets
+torch
+sentencepiece
+accelerate
+
+# Sentence Embeddings
+sentence-transformers
+
+# Vector DB (FAISS)
+faiss-cpu
+
+# Text Processing
+langdetect
+regex
+
+# API / Deployment
+fastapi
+uvicorn
+pydantic
+python-multipart
+
+# LLM API
+openai
+
+# Utilities
+tqdm

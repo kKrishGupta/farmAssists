@@ -1,0 +1,202 @@
+disease   hindi   Description           hndesc                                         Precautions hnpre
+
+
+
+
+                                                               ,
+
+
+                                            ,
+
+
+
+
+                                                                   (               )
+
+
+
+
+                                        (                                      )
+
+
+
+
+                                            ,
+
+
+
+
+                                            ,
+                                                           (
+                                                                                 ) Properly
+                                                                                    fertilize, water
+                                                                                    and mulch
+                                                                           ,        shrubs to
+                                                                                    avoid stress
+                                                                                    that may
+                                                                                    predispose             ,
+                                                                                    them to
+                                                                               30o disease.
+                                                    350o                            Avoid
+                                                                                    overhead
+                                                                                    watering that
+                                                                                    may keep
+                                                                                    leaves wet. If
+                                                                                    you have had
+                                                                                    problems with
+                                                                                    bacterial
+                  Bacterial blight is           (                                   blight, you
+                  caused by                            ,                            may want to                ,
+                  Xanthomonas                                          ,          ) use a
+                  oryzae pv.                                                        combination
+                  oryzae. It causes                                                 of copper and
+                  wilting of                                                        mancozeb-
+                        seedlings and                    containing
+                        yellowing and                    fungicides for
+bacterial_leaf_blight   drying of leaves.                control.
+
+
+
+
+                                                                               -
+                                                 ,   ,
+
+
+                                                                                     5   10
+
+
+
+
+                                                                                10
+
+                        Brown spot is
+                        caused by the
+                        fungus
+                        Cochliobolus
+                        miyabeanus. Also
+                        called                                                       -
+                        Helminthosporium
+                        leaf spot, it is one
+                        of the most                                       50                  2
+                        prevalent rice                    You may be
+                        diseases in                      able to fix this
+                        Louisiana. When                  by cutting off
+                        C. miyabeanus                    affected
+                        attacks the rice                 leaves and
+                        plants at                        letting your
+                        emergence, the                   plant's soil     25   500
+                        resulting seedling               dry out. In
+                        blight causes                    future, only
+                        sparse or                        water when 500
+                        inadequate                       the top two
+                        stands and                       inches of soil
+brown_spot              weakened plants                  feel dry.
+healthy                 -                    -           -                -
+                                                                         -
+
+
+                                                                                  10
+
+
+
+                                         ,
+
+
+
+                                                                                    10
+
+
+
+
+                                                If disease is
+                                                not endemic
+                                                to the region,
+                                                blast can be
+                                                controlled by
+                                                planting
+                                                resistant rice
+                                                varieties;          5
+                                                avoid over-
+                                                fertilizing crop
+                                                with nitrogen
+                                                as this
+                                                increases the
+                                                plant's                       -
+                                                susceptibility
+                                                to the           50
+                                                disease;                          37.5
+             Rice blast,                        utilize good                      2
+             caused by a                        water
+             fungus, causes                     management
+             lesions to form on                 to ensure
+             leaves, stems,                     plants do not
+             peduncles,                         suffer from
+             panicles, seeds,                   drought
+             and even roots.                    stress;
+             So great is the        30       60 disease can
+             potential threat for               be effectively 50
+             crop failure from                  controlled by 500
+             this disease that it               the
+             has been ranked                    application of 500      600
+             among the most                     appropriate
+             important plant                    systemic
+             diseases of them                   fungicides
+leaf_blast   all.
+                                         Microdochium oryzae
+
+
+                                                         ,               Avoid high
+                                                                         use of
+                                                                         fertilizer.
+                                                                         Chemicals
+                                                                         such as
+                                                                         benomyl,
+                    Leaf scald,                                          carbendazim,
+                    caused by                                            quitozene,
+                    Microdochium                                         and
+                    oryzae, is present                                   thiophanate-
+                    in the southern                                      methyl can be                       ,
+                    rice-growing                             ,           used to treat                               ,
+                    areas of the                                         the seeds to
+                    United States and                                    eliminate the                   -
+                    in Louisiana each                                    disease.
+                    year. The disease                ,                   In the field,
+                    affects leaves,                                      spraying of
+                    panicles and                                         benomyl,
+                    seedlings, and its                                   fentin                  ,
+                    pathogen is seed-                                    acetate,                    ,
+                    borne and                                            edifenphos,         ,
+                    survives between                                     and
+                    crops on infected                                    validamycin
+                    seeds. The                                           significantly
+                    disease usually                                      reduce the
+                    occurs on                                            incidence of
+leaf_scald          maturing leaves.                                     leaf scald.
+                                                                         Remove
+                                                                         weeds and
+                                                                         weedy rice in
+                                                                         the field and                               -
+                                                                         nearby areas
+                                                                         to remove
+                                                                         alternate
+                                                                 -       hosts that
+                                                                         allow the       ,
+                                                                         fungus to
+                                                                         survive and
+                    Narrow brown                                         infect new
+                    spot (also called                                    rice crops.
+                    narrow brown leaf                                    Use balanced
+                    spot, or rice                                    -   nutrients;                          ;
+                    Cercospora leaf                                      make sure
+                    spot) is caused by                                   that adequate
+                    the fungus                                           potassium is
+                    Sphaerulina                                          used. If
+                    oryzina (syn.                                        narrow brown
+                    Cercospora                                           spot poses a
+                    janseana,                                            risk to the
+                    Cercospora                                           field, spray                            ,
+                    oryzae) and can                                      propiconazole
+                    infect leaves,                                       at booting to
+                    sheaths, and                                         heading
+narrow_brown_spot   panicles.                                            stages.
+
