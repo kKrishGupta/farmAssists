@@ -1,0 +1,17 @@
+[
+  {
+    "source": "Fertilizer-Prediction.txt"
+  },
+  {
+    "source": "Fertilizer.txt"
+  },
+  {
+    "source": "irrigation_dataset.txt"
+  },
+  {
+    "source": "rice_pest_control.txt"
+  },
+  {
+    "source": "soil.txt"
+  }
+]

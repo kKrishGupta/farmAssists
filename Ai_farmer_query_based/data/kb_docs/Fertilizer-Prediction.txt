@@ -1,0 +1,137 @@
+                           Soil                                         Fertilizer
+TemparatureHumidityMoistureType   Crop Type NitrogenPotassiumPhosphorousName
+         26     52       38Sandy Maize            37        0          0Urea
+         29     52       45Loamy Sugarcane        12        0         36DAP
+                                                                        14-35-
+         34     65       62Black Cotton            7        9         3014
+         32     62       34Red    Tobacco         22        0         2028-28
+         28     54       46Clayey Paddy           35        0          0Urea
+                                                                        17-17-
+         26     52       35Sandy Barley           12       10         1317
+         25     50       64Red    Cotton           9        0         1020-20
+         33     64       50Loamy Wheat            41        0          0Urea
+         30     60       42Sandy Millets          21        0         1828-28
+                                                                        14-35-
+         29     58       33Black Oil seeds         9        7         3014
+         27     54       28Clayey Pulses          13        0         40DAP
+                                                                        17-17-
+         31     62       48Sandy Maize            14       15         1217
+         25     50       65Loamy Cotton           36        0          0Urea
+         32     62       41Clayey Paddy           24        0         2228-28
+                                  Ground
+         26     52       31Red    Nuts            14        0         41DAP
+                                                                        17-17-
+         31     62       49Black Sugarcane        10       13         1417
+         33     64       34Clayey Pulses          38        0          0Urea
+         25     50       39Sandy Barley           21        0         1928-28
+         28     54       65Black Cotton           39        0          0Urea
+         29     58       52Loamy Wheat            13        0         36DAP
+         30     60       44Sandy Millets          10        0          920-20
+                                                                        17-17-
+         34     65       53Loamy Sugarcane        12       14         1217
+         35     68       33Red    Tobacco         11        0         37DAP
+         28     54       37Black Millets          36        0          0Urea
+         33     64       39Clayey Paddy           13        0         1020-20
+         26     52       44Sandy Maize            23        0         2028-28
+                                                                        14-35-
+         30     60       63Red    Cotton           9        9         2914
+         32     62       30Loamy Sugarcane        38        0          0Urea
+         37     70       32Black Oil seeds        12        0         39DAP
+         26     52       36Clayey Pulses          14        0         1320-20
+                                  Ground
+         29     58       40Red    Nuts            24        0         2328-28
+         30     60       27Loamy Sugarcane        12        0         40DAP
+         34     65       38Clayey Paddy           39        0          0Urea
+                                                                        14-35-
+         36     68       38Sandy Barley            7        9         3014
+         26     52       48Loamy Wheat            23        0         1928-28
+         28     54       35Black Millets          41        0          0Urea
+                                                                        14-35-
+         30     60       61Loamy Cotton            8       10         3114
+         37     70       37Clayey Paddy           12        0         41DAP
+                                  Ground                                17-17-
+         25     50       26Red    Nuts            15       14         1117
+         29     58       34Sandy Millets          15        0         37DAP
+         27     54       30Clayey Pulses          13        0         1320-20
+                                                                        14-35-
+         30     60       58Loamy Sugarcane        10        7         3214
+         32     62       34Red    Tobacco         22        0         2428-28
+         34     65       60Black Sugarcane        35        0          0Urea
+         35     67       42Sandy Barley           10        0         35DAP
+                                                                        14-35-
+         38     70       48Loamy Wheat             8        8         2814
+         26     52       32Black Oil seeds        12        0          820-20
+         29     58       43Clayey Paddy           24        0         1828-28
+                                  Ground
+         30     60       29Red    Nuts            41        0          0Urea
+                                                                        14-35-
+         33     64       51Sandy Maize             5        9         2914
+         34     65       31Red    Tobacco         23        0         2128-28
+         36     68       33Black Oil seeds        13        0         1420-20
+         28     54       38Clayey Pulses          40        0          0Urea
+         30     60       47Sandy Barley           12        0         42DAP
+                                             17-17-
+31   62   63Red      Cotton      11   12   1517
+
+27   53   43Black Millets        23    0   2428-28
+34   65   54Loamy Wheat          38    0    0Urea
+29   58   37Sandy Millets         8    0   1520-20
+                                             17-17-
+25   50   56Loamy Sugarcane      11   13   1517
+                   Ground
+32   62   34Red    Nuts          15    0   37DAP
+28   54   41Clayey Paddy         36    0    0Urea
+30   60   49Loamy Wheat          13    0    920-20
+34   65   64Black Cotton         24    0   2028-28
+                                             10-26-
+28   54   47Sandy    Barley       5   18   1526
+27   53   35Black    Oil seeds   37    0    0Urea
+36   68   62Red      Cotton      15    0   40DAP
+34   65   57Black    Sugarcane    9    0   1320-20
+                                             14-35-
+29   58   55Loamy Sugarcane       8    8   3314
+                                             10-26-
+25   50   40Clayey   Pulses       6   19   1626
+30   60   38Sandy    Millets     10    0   1420-20
+26   52   39Clayey   Pulses      21    0   2328-28
+31   62   32Red      Tobacco     39    0    0Urea
+34   65   48Loamy    Wheat       23    0   1928-28
+27   53   34Black    Oil seeds   42    0    0Urea
+                     Ground
+33   64   31Red      Nuts        13    0   39DAP
+                                             14-35-
+29   58   42Clayey Paddy          9   10   2214
+30   60   47Sandy Maize          22    0   2128-28
+27   53   59Loamy Sugarcane      10    0   1520-20
+                                             10-26-
+26   52   36Clayey Pulses         7   16   2026
+34   65   63Red    Cotton        14    0   38DAP
+                                             14-35-
+28   54   43Clayey   Paddy       10    8   2914
+30   60   40Sandy    Millets     41    0    0Urea
+29   58   65Black    Cotton      14    0   35DAP
+26   52   59Loamy    Sugarcane   11    0    920-20
+31   62   44Sandy    Barley      21    0   2828-28
+                                             14-35-
+35   67   28Clayey Pulses         8    7   3114
+                                             10-26-
+29   58   30Red      Tobacco     13   17   1626
+27   53   30Black    Millets     35    0    0Urea
+                                             10-26-
+36   68   50Loamy Wheat          12   18   1926
+29   58   61Loamy Cotton         11    0   38DAP
+                                             14-35-
+30   60   26Black    Oil seeds    8    9   3014
+                                             10-26-
+34   65   45Clayey Paddy          6   19   2126
+                   Ground
+36   68   41Red    Nuts          41    0    0Urea
+                                             14-35-
+28   54   25Sandy Maize           9   10   3014
+25   50   32Clayey Pulses        24    0   1928-28
+                                             10-26-
+30   60   27Red      Tobacco      4   17   1726
+38   72   51Loamy    Wheat       39    0    0Urea
+36   60   43Sandy    Millets     15    0   41DAP
+29   58   57Black    Sugarcane   12    0   1020-20
+
