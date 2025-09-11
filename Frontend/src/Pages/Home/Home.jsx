@@ -6,6 +6,7 @@ import LoginModal from "./LoginModal";
 import LearningHub from "./LearningHub";
 import RewardsModal from "./RewardsModal";
 import { Link } from "react-router-dom"; // ✅ only Link is needed
+// import AccessRequiredModal from "./AccessRequiredModal";
 
 function Home() {
   const [queryCount, setQueryCount] = useState(1000);
@@ -43,20 +44,20 @@ function Home() {
       </header>
 
       {/* ===== HERO ===== */}
-      <section className="hero">
+    {/*  <section className="hero">
         <div className="hero-content">
           <h1>AI that talks Farmer.</h1>
           <p>Expert Farming Advice Anytime, Anywhere</p>
           <p className="stats">🌾 {queryCount}+ Queries Answered</p>
-
+*/}
           {/* ✅ Navigation buttons */}
-          <div className="hero-buttons">
+     {/*    <div className="hero-buttons">
             <Link to="/login" className="btn">Login</Link>
             <Link to="/signup" className="btn btn-secondary">Sign Up</Link>
           </div>
-
+*/}
           {/* Modals */}
-          {modal === "login" && <LoginModal mode="login" onClose={() => setModal(null)} />}
+  {/*       {modal === "login" && <LoginModal mode="login" onClose={() => setModal(null)} />}
           {modal === "signup" && <LoginModal mode="signup" onClose={() => setModal(null)} />}
             <div className="hero-buttons">
   <button className="btn" onClick={() => setModal("login")}>Login</button>
@@ -71,6 +72,22 @@ function Home() {
   <LoginModal mode="signup" onClose={() => setModal(null)} />
 )}
 
+        </div>
+      </section>*/}
+{/* ********************** */}
+
+ {/* ===== HERO ===== */}
+      <section className="hero">
+        <div className="hero-content">
+          <h1>AI that talks Farmer.</h1>
+          <p>Expert Farming Advice Anytime, Anywhere</p>
+          <p className="stats">🌾 {queryCount}+ Queries Answered</p>
+
+          {/* Login/Signup buttons that connect to backend */}
+          <div className="hero-buttons">
+            <button className="btn" onClick={() => setModal("login")}>Login</button>
+            <button className="btn btn-secondary" onClick={() => setModal("signup")}>Sign Up</button>
+          </div>
         </div>
       </section>
 
@@ -119,9 +136,26 @@ function Home() {
       </footer>
 
       {/* ===== MODALS ===== */}
+      {/* {modal === "chatbox" && <Chatbox onClose={() => setModal(null)} />}
+      {modal === "learning" && <LearningHub onClose={() => setModal(null)} />}
+      {modal === "rewards" && <RewardsModal onClose={() => setModal(null)} />}
+    </>
+  );
+} */}
+
+   {/* ===== MODALS ===== */}
       {modal === "chatbox" && <Chatbox onClose={() => setModal(null)} />}
       {modal === "learning" && <LearningHub onClose={() => setModal(null)} />}
       {modal === "rewards" && <RewardsModal onClose={() => setModal(null)} />}
+      {modal === "login" && <LoginModal mode="login" onClose={() => setModal(null)} />}
+      {modal === "signup" && <LoginModal mode="signup" onClose={() => setModal(null)} />}
+      {modal === "access-required" && (
+        <AccessRequiredModal 
+          onClose={() => setModal(null)}
+          onLogin={() => setModal("login")}
+          onSignup={() => setModal("signup")}
+        />
+      )}
     </>
   );
 }

@@ -738,7 +738,7 @@
 // src/Dashboard.jsx
 import React, { useEffect, useRef, useState } from "react";
 import "./dashboard.css";
-import cropCalendar from "./cropCalendar.json";
+// import cropCalendar from "./cropCalendar.json";
 
 export default function Dashboard() {
   // ----------------- UI State -----------------
