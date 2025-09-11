@@ -1,752 +1,28 @@
-// // src/Dashboard.jsx
-// import React, { useEffect, useRef, useState } from "react";
-// import "./dashboard.css";
-
-// /**
-//  * Dashboard.jsx
-//  * Full React conversion of your dashboard with:
-//  * - OpenAI chat & image analysis (requires VITE_OPENAI_API_KEY)
-//  * - OpenWeather integration for live weather (requires VITE_OPENWEATHER_API_KEY)
-//  * - Market data fetch via VITE_MARKET_API_URL (optional). Falls back to mock data.
-//  *
-//  * Notes:
-//  * - Place dashboard.css unchanged in src/
-//  * - Place static assets (logo.png, profile.png) in /public
-//  */
-
-// export default function Dashboard() {
-//   // ---------- UI / Modal State ----------
-//   const [profileOpen, setProfileOpen] = useState(false);
-//   const [isChatOpen, setChatOpen] = useState(false);
-//   const [isImageOpen, setImageOpen] = useState(false);
-//   const [isWeatherOpen, setWeatherOpen] = useState(false);
-//   const [isVoiceOpen, setVoiceOpen] = useState(false);
-//   const [isCropCalendarOpen, setCropCalendarOpen] = useState(false);
-//   const [isMarketOpen, setMarketOpen] = useState(false);
-//   const [isCommunityOpen, setCommunityOpen] = useState(false);
-//   const [isLearningOpen, setLearningOpen] = useState(false);
-//   const [isRewardsOpen, setRewardsOpen] = useState(false);
-
-//   // ---------- Profile / Logout ----------
-//   useEffect(() => {
-//     function onDocClick(e) {
-//       const profileBtn = document.getElementById("profileBtn");
-//       const popup = document.getElementById("profilePopup");
-//       if (!profileBtn || !popup) return;
-//       if (!profileBtn.contains(e.target) && !popup.contains(e.target)) {
-//         setProfileOpen(false);
-//       }
-//     }
-//     document.addEventListener("click", onDocClick);
-//     return () => document.removeEventListener("click", onDocClick);
-//   }, []);
-
-//   function handleLogout(e) {
-//     e.preventDefault();
-//     alert("You have been logged out!");
-//   }
-
-//   // ---------- Chat ----------
-//   const chatMessagesRef = useRef(null);
-//   const [chatMessages, setChatMessages] = useState(() => [
-//     { sender: "bot", text: "👋 Welcome to Farm Assist! How can I help you today?" },
-//   ]);
-//   const [chatInput, setChatInput] = useState("");
-//   const [chatHistoryArray, setChatHistoryArray] = useState(() => {
-//     try {
-//       const raw = localStorage.getItem("farmAssistChatHistory");
-//       return raw ? JSON.parse(raw) : [];
-//     } catch {
-//       return [];
-//     }
-//   });
-//   const [isHistoryVisible, setIsHistoryVisible] = useState(false);
-
-//   useEffect(() => {
-//     // autoscroll chat
-//     if (chatMessagesRef.current) {
-//       chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
-//     }
-//   }, [chatMessages]);
-
-//   // ---------- OpenAI Chat (production: uses your key from .env) ----------
-//   async function callOpenAIChat(question) {
-//     const key = import.meta.env.VITE_OPENAI_API_KEY;
-//     if (!key) {
-//       console.warn("OpenAI API key not provided. Falling back to fallback reply.");
-//       return `Mock reply (OpenAI key missing): Suggestion for "${question}".`;
-//     }
-
-//     try {
-//       const resp = await fetch("https://api.openai.com/v1/chat/completions", {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//           Authorization: `Bearer ${key}`,
-//         },
-//         body: JSON.stringify({
-//           model: "gpt-4o-mini", // use a cost-appropriate model; change as you like
-//           messages: [
-//             { role: "system", content: "You are Farm Assist — a helpful agronomy assistant for farmers. Reply concisely in simple language and include actionable steps." },
-//             { role: "user", content: question },
-//           ],
-//           max_tokens: 400,
-//           temperature: 0.2,
-//         }),
-//       });
-//       const data = await resp.json();
-//       if (data?.choices?.[0]?.message?.content) {
-//         return data.choices[0].message.content.trim();
-//       } else {
-//         console.error("OpenAI chat response missing:", data);
-//         return "Sorry — no response from the model right now.";
-//       }
-//     } catch (err) {
-//       console.error("OpenAI chat error:", err);
-//       return "Network error while contacting model. Try again later.";
-//     }
-//   }
-
-//   function saveChatHistory(question, answer) {
-//     const item = {
-//       id: Date.now(),
-//       question: question.length > 80 ? question.slice(0, 80) + "..." : question,
-//       timestamp: new Date().toLocaleString(),
-//       answer,
-//     };
-//     setChatHistoryArray((prev) => {
-//       const next = [item, ...prev].slice(0, 50); // keep last 50
-//       try {
-//         localStorage.setItem("farmAssistChatHistory", JSON.stringify(next));
-//       } catch {}
-//       return next;
-//     });
-//   }
-
-//   async function sendMessage() {
-//     const q = chatInput.trim();
-//     if (!q) return;
-//     // add user message
-//     setChatMessages((prev) => [...prev, { sender: "user", text: q }]);
-//     setChatInput("");
-//     // typing indicator
-//     setChatMessages((prev) => [...prev, { sender: "bot", text: "⏳ Thinking..." }]);
-
-//     const reply = await callOpenAIChat(q);
-
-//     // replace typing indicator with actual reply
-//     setChatMessages((prev) => {
-//       const copy = [...prev];
-//       // replace last bot message
-//       let index = copy.length - 1;
-//       if (index >= 0 && copy[index].sender === "bot" && copy[index].text === "⏳ Thinking...") {
-//         copy[index] = { sender: "bot", text: reply };
-//       } else {
-//         copy.push({ sender: "bot", text: reply });
-//       }
-//       return copy;
-//     });
-
-//     saveChatHistory(q, reply);
-//   }
-
-//   // ---------- Image Upload + OpenAI Vision ----------
-//   const fileInputRef = useRef(null);
-//   const [imagePreviewSrc, setImagePreviewSrc] = useState(null);
-//   const [imageAnalysis, setImageAnalysis] = useState("");
-//   const [imageStatus, setImageStatus] = useState("");
-
-//   async function handleFileUpload(e) {
-//     const file = e.target.files?.[0];
-//     if (!file) return;
-//     const reader = new FileReader();
-//     reader.onload = async (ev) => {
-//       setImagePreviewSrc(ev.target.result);
-//       setImageStatus("⏳ Analyzing...");
-//       setImageAnalysis("");
-//       // We'll use OpenAI chat to analyze the image: send the data URI as a context
-//       const key = import.meta.env.VITE_OPENAI_API_KEY;
-//       if (!key) {
-//         setImageStatus("⚠️ OpenAI key missing. Provide VITE_OPENAI_API_KEY in .env.");
-//         return;
-//       }
-
-//       try {
-//         // Note: OpenAI's vision integrations / image uploads vary by account and SDK.
-//         // Here we call the Chat Completions endpoint and include a short prompt + the data URI in the user message.
-//         // For large images, data URI could be huge — alternatively upload image to your server / S3 and pass a URL.
-//         const systemPrompt = "You are an expert agronomist. Analyze the image the user provided for pests, diseases, nutrient deficiency signs and give short clear actions.";
-//         const userMessage = `IMAGE_DATA_URI:${ev.target.result}\n\nPlease analyze and provide likely diagnosis and recommended actions (short).`;
-
-//         const resp = await fetch("https://api.openai.com/v1/chat/completions", {
-//           method: "POST",
-//           headers: {
-//             "Content-Type": "application/json",
-//             Authorization: `Bearer ${key}`,
-//           },
-//           body: JSON.stringify({
-//             model: "gpt-4o-mini", // adjust to model with vision if available in your account
-//             messages: [
-//               { role: "system", content: systemPrompt },
-//               { role: "user", content: userMessage },
-//             ],
-//             max_tokens: 500,
-//             temperature: 0.0,
-//           }),
-//         });
-//         const data = await resp.json();
-//         const result = data?.choices?.[0]?.message?.content?.trim() || "No analysis returned.";
-//         setImageAnalysis(result);
-//         setImageStatus("✅ Analysis complete.");
-//         // save to chat history
-//         saveChatHistory("Image uploaded for analysis", result);
-//       } catch (err) {
-//         console.error("Vision error:", err);
-//         setImageStatus("⚠️ Failed to analyze image.");
-//       }
-//     };
-//     reader.readAsDataURL(file);
-//   }
-
-//   // ---------- Weather (OpenWeather) ----------
-//   const [locationInput, setLocationInput] = useState("");
-//   const [weatherData, setWeatherData] = useState(null);
-//   const [activeWeatherTab, setActiveWeatherTab] = useState("current");
-
-//   // Helper: geocode city name → lat/lon (OpenWeather geocoding)
-//   async function geocodeCity(city) {
-//     const key = import.meta.env.VITE_OPENWEATHER_API_KEY;
-//     if (!key) throw new Error("OpenWeather API key missing (VITE_OPENWEATHER_API_KEY).");
-//     const q = encodeURIComponent(city);
-//     const url = `https://api.openweathermap.org/geo/1.0/direct?q=${q}&limit=1&appid=${key}`;
-//     const resp = await fetch(url);
-//     const arr = await resp.json();
-//     if (!Array.isArray(arr) || arr.length === 0) throw new Error("Location not found.");
-//     return { lat: arr[0].lat, lon: arr[0].lon, name: arr[0].name, country: arr[0].country };
-//   }
-
-//   // fetch One Call (current + daily)
-//   async function fetchWeatherByCoords(lat, lon) {
-//     const key = import.meta.env.VITE_OPENWEATHER_API_KEY;
-//     if (!key) throw new Error("OpenWeather API key missing.");
-//     // One Call 3.0 uses a paid endpoint; using 2.5/onecall for compatibility — check your plan and endpoints
-//     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely&appid=${key}`;
-//     const resp = await fetch(url);
-//     const js = await resp.json();
-//     // normalize to expected shape
-//     return {
-//       location: `${lat.toFixed(3)},${lon.toFixed(3)}`,
-//       current: {
-//         temp: js.current?.temp,
-//         condition: js.current?.weather?.[0]?.description,
-//         icon: js.current?.weather?.[0]?.icon,
-//         humidity: js.current?.humidity,
-//         wind: js.current?.wind_speed + " m/s",
-//       },
-//       daily: (js.daily || []).slice(0, 7).map((d) => ({
-//         dt: d.dt,
-//         icon: d.weather?.[0]?.icon,
-//         description: d.weather?.[0]?.description,
-//         temp: { max: d.temp?.max, min: d.temp?.min },
-//       })),
-//     };
-//   }
-
-//   async function searchLocation() {
-//     if (!locationInput.trim()) return alert("Enter location name.");
-//     try {
-//       const geo = await geocodeCity(locationInput.trim());
-//       const w = await fetchWeatherByCoords(geo.lat, geo.lon);
-//       w.location = `${geo.name}, ${geo.country}`;
-//       setWeatherData(w);
-//       setActiveWeatherTab("current");
-//     } catch (err) {
-//       console.error("Weather error:", err);
-//       alert("Location/weather lookup failed: " + (err.message || err));
-//     }
-//   }
-
-//   function useMyLocationForWeather() {
-//     if (!navigator.geolocation) return alert("Geolocation not supported");
-//     navigator.geolocation.getCurrentPosition(
-//       async (pos) => {
-//         try {
-//           const w = await fetchWeatherByCoords(pos.coords.latitude, pos.coords.longitude);
-//           w.location = "Your location";
-//           setWeatherData(w);
-//           setActiveWeatherTab("current");
-//         } catch (err) {
-//           console.error(err);
-//           alert("Failed to fetch weather for your location");
-//         }
-//       },
-//       (err) => {
-//         alert("Geolocation denied or unavailable");
-//       }
-//     );
-//   }
-
-//   // ---------- Market live integration ----------
-//   const [marketLocation, setMarketLocation] = useState("palakkad");
-//   const [marketRows, setMarketRows] = useState([]); // array of objects
-//   const [marketLoading, setMarketLoading] = useState(false);
-
-//   // The component supports a configurable market API. If you have a market API, set VITE_MARKET_API_URL to its endpoint.
-//   // The fetchMarketData function will call that endpoint with optional query params (location).
-//   // If no env var, the component will use internal mock data so UI works.
-//   const MARKET_API_URL = import.meta.env.VITE_MARKET_API_URL || null;
-//   const MARKET_API_KEY = import.meta.env.VITE_MARKET_API_KEY || null;
-
-//   async function fetchMarketData(location = marketLocation) {
-//     setMarketLoading(true);
-//     try {
-//       if (!MARKET_API_URL) {
-//         // fallback mock data
-//         const mock = [
-//           { crop: "Rice", price: "₹2,600/quintal", change: "+1.2%", min: "₹2,500", max: "₹2,700", volume: "1,200 qt" },
-//           { crop: "Wheat", price: "₹2,900/quintal", change: "-0.5%", min: "₹2,800", max: "₹3,000", volume: "750 qt" },
-//           { crop: "Tomato", price: "₹3,500/quintal", change: "+4.8%", min: "₹2,900", max: "₹3,800", volume: "450 qt" },
-//         ];
-//         setMarketRows(mock);
-//         setMarketLoading(false);
-//         return;
-//       }
-//       // call your market API — expected to return JSON array of {crop, price, change, min, max, volume}
-//       const url = new URL(MARKET_API_URL);
-//       if (location) url.searchParams.set("location", location);
-//       if (MARKET_API_KEY) url.searchParams.set("apikey", MARKET_API_KEY);
-
-//       const resp = await fetch(url.toString());
-//       if (!resp.ok) throw new Error(`Market API failed: ${resp.status}`);
-//       const data = await resp.json();
-//       // adapt data shape if necessary; assume data.rows or data.results or direct array
-//       const rows = Array.isArray(data) ? data : data.rows || data.results || [];
-//       setMarketRows(rows);
-//     } catch (err) {
-//       console.error("Market fetch error:", err);
-//       // fallback to mock on error
-//       setMarketRows([
-//         { crop: "Rice", price: "₹2,600/quintal", change: "+1.2%", min: "₹2,500", max: "₹2,700", volume: "1,200 qt" },
-//       ]);
-//     } finally {
-//       setMarketLoading(false);
-//     }
-//   }
-
-//   useEffect(() => {
-//     // initial market fetch
-//     fetchMarketData();
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//   }, []);
-
-//   // ---------- Crop Calendar (static data kept from original) ----------
-//   const cropData = {
-//     rice: {
-//       name: "Rice (धान)",
-//       overview: {
-//         description: "Rice is the staple crop; select variety per region.",
-//         soilType: "Clay loam, pH 5.5-7.0",
-//       },
-//       timeline: [
-//         { stage: "Land Preparation", period: "May-June", icon: "🚜" },
-//         { stage: "Transplanting", period: "July", icon: "🌱" },
-//         { stage: "Vegetative Growth", period: "Aug-Sep", icon: "🌿" },
-//       ],
-//     },
-//     tomato: {
-//       name: "Tomato (टमाटर)",
-//       overview: { description: "Warm season vegetable." },
-//       timeline: [{ stage: "Nursery", period: "Sep", icon: "🌱" }, { stage: "Harvest", period: "Feb-Mar", icon: "🚛" }],
-//     },
-//   };
-//   const [selectedCropKey, setSelectedCropKey] = useState("rice");
-//   const [selectedSeason, setSelectedSeason] = useState("kharif");
-//   const [selectedRegion, setSelectedRegion] = useState("south");
-
-//   // ---------- Community forum ----------
-//   const [forumPosts, setForumPosts] = useState(() => [
-//     { id: Date.now() - 10000, title: "Best fertilizer for wheat?", content: "Looking for suggestions", category: "Advice" },
-//   ]);
-//   const [postTitle, setPostTitle] = useState("");
-//   const [postContent, setPostContent] = useState("");
-//   const [postCategory, setPostCategory] = useState("General");
-
-//   function addForumPost() {
-//     if (!postTitle.trim() || !postContent.trim()) {
-//       alert("Title and content required");
-//       return;
-//     }
-//     const newPost = { id: Date.now(), title: postTitle.trim(), content: postContent.trim(), category: postCategory };
-//     setForumPosts((p) => [newPost, ...p]);
-//     setPostTitle("");
-//     setPostContent("");
-//     setPostCategory("General");
-//   }
-
-//   // ---------- Voice simulation (light) ----------
-//   const [isRecording, setIsRecording] = useState(false);
-//   const [voiceText, setVoiceText] = useState("");
-//   const [voiceResponse, setVoiceResponse] = useState("");
-
-//   function toggleRecording() {
-//     if (!isRecording) {
-//       setIsRecording(true);
-//       setVoiceText("Listening...");
-//       setTimeout(async () => {
-//         const simulatedTranscription = "How much urea apply on rice at 30 days?";
-//         setVoiceText(simulatedTranscription);
-//         // auto-call OpenAI with transcription
-//         const reply = await callOpenAIChat(simulatedTranscription);
-//         setVoiceResponse(reply);
-//         saveChatHistory(simulatedTranscription, reply);
-//         setIsRecording(false);
-//       }, 1500);
-//     } else {
-//       setIsRecording(false);
-//       setVoiceText("");
-//     }
-//   }
-
-//   // ---------- small helpers ----------
-//   function openChatModal(mode = "text") {
-//     if (mode === "audio") {
-//       setIsVoiceOpen(true);
-//       setVoiceText("");
-//       return;
-//     }
-//     setChatOpen(true);
-//   }
-
-//   // ---------- JSX Render (UI preserved) ----------
-//   return (
-//     <div>
-//       {/* Header */}
-//       <header className="header">
-//         <div className="left-section">
-//           <img src="/logo.png" alt="Farm Assist Logo" className="logo" />
-//           <span className="welcome">Hello, <strong>Ramu</strong></span>
-//           <span className="location"><i className="fas fa-map-marker-alt"></i> Palakkad</span>
-//         </div>
-
-//         <div className="right-section">
-//           <div className="profile-container">
-//             <img
-//               src="/profile.png"
-//               alt="Profile"
-//               className="profile-pic"
-//               id="profileBtn"
-//               onClick={() => setProfileOpen((p) => !p)}
-//             />
-//             <div className="profile-popup" id="profilePopup" style={{ display: profileOpen ? "block" : "none" }}>
-//               <p><strong>Name:</strong> Ramu</p>
-//               <p><strong>Queries Asked:</strong> {chatHistoryArray.length}</p>
-//               <p><strong>Points Earned:</strong> {chatHistoryArray.length * 10}</p>
-//               <p><strong>Crop:</strong> Wheat</p>
-//             </div>
-//           </div>
-//           <a href="land.html" className="logout-btn" onClick={handleLogout}>Logout</a>
-//         </div>
-//       </header>
-
-//       {/* Hero */}
-//       <section className="wavy-section">
-//         <div className="wavy-bg">
-//           <div className="wavy-content">
-//             <div className="wavy-text">
-//               <h1>AI That Speaks Farmer</h1>
-//               <p>Ask about crops, pests, weather, or farm care and get instant advice.</p>
-//             </div>
-//             <div className="wavy-image"></div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Quick Action Cards */}
-//       <section className="cards-section">
-//         <div className="card">
-//           <i className="fas fa-keyboard fa-3x card-icon"></i>
-//           <p>Type your question</p>
-//           <button onClick={() => openChatModal("text")}>Type Query</button>
-//         </div>
-//         <div className="card">
-//           <i className="fas fa-microphone fa-3x card-icon"></i>
-//           <p>Speak your query</p>
-//           <button onClick={() => openChatModal("audio")}>Record Voice Query</button>
-//         </div>
-//         <div className="card">
-//           <i className="fas fa-image fa-3x card-icon"></i>
-//           <p>Upload an image</p>
-//           <button onClick={() => { setImageOpen(true); }}>Upload Image</button>
-//         </div>
-//       </section>
-
-//       {/* Feature Grid */}
-//       <div className="container">
-//         <section className="cards-grid">
-//           <div className="card" onClick={() => setCropCalendarOpen(true)}><h3>Crop Calendar</h3><p>Track sowing & harvest</p></div>
-//           <div className="card" onClick={() => { setWeatherOpen(true); useMyLocationForWeather(); }}><h3>Weather Alerts</h3><p>Get live weather</p></div>
-//           <div className="card" onClick={() => setMarketOpen(true)}><h3>Market Updates</h3><p>Local crop prices</p></div>
-//           <div className="card" onClick={() => setCommunityOpen(true)}><h3>Community Forum</h3><p>Discuss with farmers</p></div>
-//           <div className="card row2" onClick={() => setLearningOpen(true)}><h3>Learning Hub</h3></div>
-//           <div className="card row2" onClick={() => setRewardsOpen(true)}><h3>Rewards</h3></div>
-//           <div className="card row2"><h3>Officer Escalation</h3><p>Send complex queries to officers</p></div>
-//         </section>
-//       </div>
-
-//       {/* Chat Modal */}
-//       {isChatOpen && (
-//         <div id="chatModal" className="modal" style={{ display: "block" }}>
-//           <div className="modal-content chatbot-modal">
-//             <div className="chatbot-header">
-//               <h3>Farm Assist Chatbot</h3>
-//               <div className="header-controls">
-//                 <button className="history-toggle-btn" onClick={() => setIsHistoryVisible((v) => !v)} title="Toggle History"><i className="fas fa-list" /></button>
-//                 <span className="close" onClick={() => setChatOpen(false)}>&times;</span>
-//               </div>
-//             </div>
-
-//             <div className="chatbot-container">
-//               <div className="chat-main">
-//                 <div id="chatMessages" className="chat-messages" ref={chatMessagesRef}>
-//                   {chatMessages.map((m, i) => (
-//                     m.sender === "bot" ? (
-//                       <div className="bot-message" key={i}><div className="message-avatar">🤖</div><div className="message-content">{m.text}</div></div>
-//                     ) : (
-//                       <div className="user-message" key={i}><div className="message-avatar">👤</div><div className="message-content">{m.text}</div></div>
-//                     )
-//                   ))}
-//                 </div>
-
-//                 <div className="chat-input-area">
-//                   <div className="input-area">
-//                     <input type="text" id="chatInput" placeholder="Ask about crops, prices, pest control..." value={chatInput} onChange={(e) => setChatInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && sendMessage()} />
-//                     <button onClick={sendMessage} id="sendBtn"><i className="fas fa-paper-plane" /></button>
-//                   </div>
-//                 </div>
-//               </div>
-
-//               {isHistoryVisible && (
-//                 <div className="chat-sidebar" id="chatSidebar">
-//                   <h4>Chat History</h4>
-//                   <div id="chatHistory" className="history-list">
-//                     {chatHistoryArray.length === 0 ? <div className="history-item">No previous chats</div> : chatHistoryArray.map(h => (
-//                       <div className="history-item" key={h.id}><div style={{ fontWeight: 600 }}>{h.question}</div><div style={{ fontSize: ".9rem" }}>{h.answer}</div><div style={{ fontSize: ".8rem", color: "#666" }}>{h.timestamp}</div></div>
-//                     ))}
-//                   </div>
-//                 </div>
-//               )}
-//             </div>
-//           </div>
-//         </div>
-//       )}
-
-//       {/* Image Modal */}
-//       {isImageOpen && (
-//         <div id="imageModal" className="modal" style={{ display: "block" }}>
-//           <div className="modal-content image-modal">
-//             <div className="image-header">
-//               <h3>Upload Image for Analysis</h3>
-//               <span className="close" onClick={() => setImageOpen(false)}>&times;</span>
-//             </div>
-
-//             <div className="image-container">
-//               <div className="upload-options" style={{ display: imagePreviewSrc ? "none" : "flex" }}>
-//                 <div className="upload-option" onClick={() => fileInputRef.current?.click()}><i className="fas fa-upload fa-3x" /><h4>Upload File</h4><p>Choose image from device</p></div>
-//               </div>
-
-//               <input type="file" id="fileInput" accept="image/*" ref={fileInputRef} style={{ display: "none" }} onChange={handleFileUpload} />
-
-//               {imagePreviewSrc && (
-//                 <div id="imagePreviewSection" className="image-preview-section">
-//                   <div className="image-preview"><img id="previewImage" src={imagePreviewSrc} alt="Uploaded" /></div>
-//                   <div className="ocr-results">
-//                     <h4>AI Analysis Status</h4>
-//                     <div id="extractedText" className="extracted-text">{imageStatus}</div>
-//                     {imageAnalysis && <div className="image-response"><h4>AI Findings</h4><div>{imageAnalysis}</div></div>}
-//                     <div className="ocr-actions"><button onClick={() => { setImagePreviewSrc(null); setImageAnalysis(""); setImageStatus(""); if (fileInputRef.current) fileInputRef.current.value = ""; }}>Upload Another</button></div>
-//                   </div>
-//                 </div>
-//               )}
-//             </div>
-//           </div>
-//         </div>
-//       )}
-
-//       {/* Weather Modal */}
-//       {isWeatherOpen && (
-//         <div id="weatherModal" className="modal" style={{ display: "block" }}>
-//           <div className="modal-content weather-modal">
-//             <div className="weather-header"><h3>Advanced Weather Forecast & Alerts</h3><span className="close" onClick={() => setWeatherOpen(false)}>&times;</span></div>
-//             <div className="weather-container">
-//               <div className="location-search">
-//                 <input type="text" id="locationInput" placeholder="Search location..." value={locationInput} onChange={(e) => setLocationInput(e.target.value)} />
-//                 <button onClick={searchLocation}>Search</button>
-//                 <button onClick={useMyLocationForWeather}>Use Current Location</button>
-//               </div>
-
-//               <div className="weather-tabs">
-//                 <button className={`tab-btn ${activeWeatherTab === "current" ? "active" : ""}`} onClick={() => setActiveWeatherTab("current")}>Current</button>
-//                 <button className={`tab-btn ${activeWeatherTab === "weekly" ? "active" : ""}`} onClick={() => setActiveWeatherTab("weekly")}>7-Day</button>
-//                 <button className={`tab-btn ${activeWeatherTab === "farming" ? "active" : ""}`} onClick={() => setActiveWeatherTab("farming")}>Farm Advisory</button>
-//               </div>
-
-//               <div className="weather-display">
-//                 {!weatherData ? (
-//                   <div>Please search a location or use current location.</div>
-//                 ) : (
-//                   <>
-//                     {activeWeatherTab === "current" && (
-//                       <div className="current-weather">
-//                         <div className="weather-main">
-//                           <div className="weather-icon">{weatherData.current.icon}</div>
-//                           <div className="temperature">{Math.round(weatherData.current.temp)}°C</div>
-//                           <div className="weather-desc">{weatherData.current.condition}</div>
-//                           <div className="location-info">📍 {weatherData.location}</div>
-//                         </div>
-//                         <div className="weather-details">
-//                           <div className="detail-item"><span className="label">Humidity</span><span className="value">{weatherData.current.humidity}%</span></div>
-//                           <div className="detail-item"><span className="label">Wind</span><span className="value">{weatherData.current.wind}</span></div>
-//                         </div>
-//                       </div>
-//                     )}
-
-//                     {activeWeatherTab === "weekly" && (
-//                       <div className="weekly-forecast">
-//                         {weatherData.daily.map((d, i) => (
-//                           <div key={i} className="forecast-day">
-//                             <div>{new Date(d.dt * 1000).toLocaleDateString()}</div>
-//                             <div>{d.description}</div>
-//                             <div>{Math.round(d.temp.max)}° / {Math.round(d.temp.min)}°</div>
-//                           </div>
-//                         ))}
-//                       </div>
-//                     )}
-
-//                     {activeWeatherTab === "farming" && (
-//                       <div className="farming-advisory">
-//                         <div className="advisory-card"><h4>Crop Advisory</h4><p>Monitor leaf wetness — fungal risk increased when high humidity during night.</p></div>
-//                         <div className="advisory-card"><h4>Irrigation</h4><p>Top up irrigation if no rainfall expected in next 3 days.</p></div>
-//                       </div>
-//                     )}
-//                   </>
-//                 )}
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       )}
-
-//       {/* Crop Calendar Modal */}
-//       {isCropCalendarOpen && (
-//         <div id="cropCalendarModal" className="modal" style={{ display: "block" }}>
-//           <div className="modal-content crop-calendar-modal">
-//             <div className="crop-calendar-header"><h3>Crop Calendar</h3><span className="close" onClick={() => setCropCalendarOpen(false)}>&times;</span></div>
-//             <div className="crop-calendar-container">
-//               <div className="crop-selection">
-//                 <label htmlFor="cropSelect">Select Crop:</label>
-//                 <select id="cropSelect" value={selectedCropKey} onChange={(e) => setSelectedCropKey(e.target.value)}>
-//                   {Object.keys(cropData).map(k => <option key={k} value={k}>{cropData[k].name}</option>)}
-//                 </select>
-//               </div>
-
-//               <div className="crop-timeline">
-//                 <h4>Timeline for {cropData[selectedCropKey].name}</h4>
-//                 <div className="timeline-container">
-//                   {cropData[selectedCropKey].timeline.map((s, i) => (
-//                     <div key={i} className="timeline-item"><div className="timeline-icon">{s.icon}</div><div className="timeline-content"><h5>{s.stage}</h5><div className="timeline-period">{s.period}</div></div></div>
-//                   ))}
-//                 </div>
-//               </div>
-
-//               <div className="crop-details">
-//                 <h4>Overview</h4>
-//                 <p>{cropData[selectedCropKey].overview.description}</p>
-//                 <p><strong>Soil:</strong> {cropData[selectedCropKey].overview.soilType || "-"}</p>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       )}
-
-//       {/* Market Modal */}
-//       {isMarketOpen && (
-//         <div id="marketModal" className="modal" style={{ display: "block" }}>
-//           <div className="modal-content market-modal">
-//             <div className="market-header"><h3>Market Updates</h3><span className="close" onClick={() => setMarketOpen(false)}>&times;</span></div>
-//             <div className="market-container">
-//               <div className="market-controls">
-//                 <label>Market Location:</label>
-//                 <select value={marketLocation} onChange={(e) => setMarketLocation(e.target.value)}>
-//                   <option value="palakkad">Palakkad</option>
-//                   <option value="coimbatore">Coimbatore</option>
-//                   <option value="bangalore">Bangalore</option>
-//                 </select>
-//                 <button onClick={() => fetchMarketData(marketLocation)}>Refresh</button>
-//               </div>
-
-//               <div className="price-table-container">
-//                 {marketLoading ? <div>Loading...</div> : (
-//                   <table className="price-table">
-//                     <thead><tr><th>Crop</th><th>Price</th><th>Change</th><th>Min</th><th>Max</th><th>Volume</th></tr></thead>
-//                     <tbody>
-//                       {marketRows.map((r, i) => (
-//                         <tr key={i}>
-//                           <td>{r.crop}</td>
-//                           <td>{r.price}</td>
-//                           <td>{r.change}</td>
-//                           <td>{r.min}</td>
-//                           <td>{r.max}</td>
-//                           <td>{r.volume}</td>
-//                         </tr>
-//                       ))}
-//                     </tbody>
-//                   </table>
-//                 )}
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       )}
-
-//       {/* Community Modal */}
-//       {isCommunityOpen && (
-//         <div id="communityModal" className="modal" style={{ display: "block" }}>
-//           <div className="modal-content community-modal">
-//             <div className="community-header"><h3>Community Forum</h3><span className="close" onClick={() => setCommunityOpen(false)}>&times;</span></div>
-//             <div className="community-container">
-//               <div className="forum-posts">
-//                 {forumPosts.map(p => <div key={p.id} className="forum-post"><h4>{p.title}</h4><p>{p.content}</p><small>{p.category}</small></div>)}
-//               </div>
-//               <div className="new-post">
-//                 <input placeholder="Title" value={postTitle} onChange={(e) => setPostTitle(e.target.value)} />
-//                 <textarea placeholder="Content" value={postContent} onChange={(e) => setPostContent(e.target.value)} />
-//                 <select value={postCategory} onChange={(e) => setPostCategory(e.target.value)}><option>General</option><option>Advice</option><option>Market</option></select>
-//                 <button onClick={addForumPost}>Post</button>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       )}
-
-//       {/* Learning & Rewards (placeholders) */}
-//       {isLearningOpen && (<div className="modal"><div className="modal-content learning-hub-modal"><div className="learning-hub-header"><h3>Learning Hub</h3><span className="close" onClick={() => setLearningOpen(false)}>&times;</span></div><div className="learning-hub-container"><p>[Videos & quizzes placeholder]</p></div></div></div>)}
-//       {isRewardsOpen && (<div className="modal"><div className="modal-content rewards-popup"><div className="rewards-popup-header"><h3>Rewards</h3><span className="close" onClick={() => setRewardsOpen(false)}>&times;</span></div><div className="rewards-popup-container"><p>[Rewards & coins placeholder]</p></div></div></div>)}
-
-//     </div>
-//   );
-// }
 // src/Dashboard.jsx
 import React, { useEffect, useRef, useState } from "react";
-import "./dashboard.css";
-import cropCalendar from "./cropCalendar.json";
+import "./Dashboard.css";
+import Chatbox from "./Chatbox";
+import axios from "axios";
 
+console.log("Dashboard connected to backend APIs");
+
+// ==============================
+// Dashboard Component
+// ==============================
 export default function Dashboard() {
-  // ----------------- UI State -----------------
+  // ---------- UI / Modal State ----------
   const [profileOpen, setProfileOpen] = useState(false);
   const [isChatOpen, setChatOpen] = useState(false);
   const [isImageOpen, setImageOpen] = useState(false);
+  const [isWeatherOpen, setWeatherOpen] = useState(false);
+ const [isVoiceOpen, setVoiceOpen] = useState(false);
+  const [isCropCalendarOpen, setCropCalendarOpen] = useState(false);
+  const [isMarketOpen, setMarketOpen] = useState(false);
+  const [isCommunityOpen, setCommunityOpen] = useState(false);
+  const [isLearningOpen, setLearningOpen] = useState(false);
+  const [isRewardsOpen, setRewardsOpen] = useState(false);
 
-  // ----------------- Profile Logic -----------------
+  // ---------- Profile / Logout ----------
   useEffect(() => {
     function onDocClick(e) {
       const profileBtn = document.getElementById("profileBtn");
@@ -765,172 +41,738 @@ export default function Dashboard() {
     alert("You have been logged out!");
   }
 
-  // ----------------- Chat State -----------------
-  const [chatMessages, setChatMessages] = useState([
-    { sender: "bot", text: "👋 Welcome to Farm Assist! How can I help you today?" },
-  ]);
-  const [chatInput, setChatInput] = useState("");
-  const chatMessagesRef = useRef(null);
+  // =====================================================
+  // WEATHER (real backend API)
+  // =====================================================
+  const [locationInput, setLocationInput] = useState("");
+  const [weatherDisplayData, setWeatherDisplayData] = useState(null);
+  const [loadingWeather, setLoadingWeather] = useState(false);
+  const [weatherError, setWeatherError] = useState(null);
+  const [activeWeatherTab, setActiveWeatherTab] = useState("current");
+
+  async function loadWeatherData(location = "Ghaziabad") {
+    setLoadingWeather(true);
+    setWeatherError(null);
+    try {
+      const res = await axios.get("http://localhost:5000/api/weather", {
+        params: { lat: 10.85, lon: 76.27 }, // you can extend this with geolocation input
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+      setWeatherDisplayData(res.data.weather);
+    } catch (err) {
+      console.error("Weather error:", err);
+      setWeatherError("Failed to fetch weather.");
+    } finally {
+      setLoadingWeather(false);
+    }
+  }
+
+  function openWeatherModal() {
+    setWeatherOpen(true);
+    loadWeatherData({location: "GHaziabad"});
+  }
+  function closeWeatherModal() {
+    setWeatherOpen(false);
+  }
+ function searchLocation() {
+    if (locationInput.trim()) {
+      loadWeather({ location: locationInput.trim() });
+    }
+  }
+
+  function getCurrentLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) =>
+          loadWeather({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
+        () => alert("Unable to get your location. Please search manually.")
+      );
+    } else {
+      alert("Geolocation not supported in this browser.");
+    }
+  }
+  // =====================================================
+  // IMAGE DIAGNOSE (real backend API)
+  // =====================================================
+  const fileInputRef = useRef(null);
+  const cameraVideoRef = useRef(null);
+  const cameraCanvasRef = useRef(null);
+  const [cameraStream, setCameraStream] = useState(null);
+  const [file, setFile] = useState(null);
+  const [imagePreviewSrc, setImagePreviewSrc] = useState(null);
+  const [diagnoseResult, setDiagnoseResult] = useState(null);
+  const [diagnoseLoading, setDiagnoseLoading] = useState(false);
+  const [diagnoseError, setDiagnoseError] = useState(null);
+  const [ocrText, setOcrText] = useState("Processing image...");
+  const [showUploadOptions, setShowUploadOptions] = useState(true);
+  const [showCameraSection, setShowCameraSection] = useState(false);
+  const [showImagePreviewSection, setShowImagePreviewSection] = useState(false);
+  const [showImageResponseSection, setShowImageResponseSection] = useState(false);
+  function openImageModal() {
+    setImageOpen(true);
+    resetImageUpload();
+  }
+  function closeImageModal() {
+    setImageOpen(false);
+  }
+
+  async function uploadDiagnose() {
+    if (!file) return;
+    setDiagnoseLoading(true);
+    setDiagnoseError(null);
+    try {
+      const form = new FormData();
+      form.append("image", file);
+
+      const res = await axios.post(
+        "http://localhost:5000/api/image/diagnose",
+        form,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      setDiagnoseResult(res.data.diagnosis);
+    } catch (err) {
+      console.error("Diagnose error:", err);
+      setDiagnoseError("Diagnosis failed. Try again.");
+    } finally {
+      setDiagnoseLoading(false);
+    }
+  }
+
+  // async function openCamera() {
+  //   try {
+  //     const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+  //     cameraVideoRef.current.srcObject = stream;
+  //     setCameraStream(stream);
+  //   } catch {
+  //     alert("Unable to access camera.");
+  //   }
+  // }
+
+  //  async function openCamera() {
+  //   try {
+  //     const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+  //     cameraVideoRef.current.srcObject = stream;
+  //     setCameraStream(stream);
+  //     setShowCameraSection(true);
+  //     setShowUploadOptions(false);
+  //   } catch (err) {
+  //     console.error("Error accessing camera:", err);
+  //     alert("Unable to access camera. Please check permissions or try file upload.");
+  //   }
+  // } 
+
+  async function openCamera() {
+  try {
+    // show the camera UI first so <video> is mounted
+    setShowCameraSection(true);
+    setShowUploadOptions(false);
+
+    // wait for React to render <video>, then request camera
+    setTimeout(async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        if (cameraVideoRef.current) {
+          cameraVideoRef.current.srcObject = stream;
+          setCameraStream(stream);
+        } else {
+          console.error("cameraVideoRef not ready yet");
+        }
+      } catch (err) {
+        console.error("Error accessing camera:", err);
+        alert("Unable to access camera. Please check permissions or try file upload.");
+      }
+    }, 100); // small delay (100ms) ensures <video> exists
+  } catch (err) {
+    console.error("Unexpected error in openCamera:", err);
+  }
+}
+
+
+  function closeCameraSection() {
+    if (cameraStream) {
+      cameraStream.getTracks().forEach((t) => t.stop());
+      setCameraStream(null);
+    }
+    setShowCameraSection(false);
+    setShowUploadOptions(true);
+  }
+
+  function captureImage() {
+    const video = cameraVideoRef.current;
+    const canvas = cameraCanvasRef.current;
+    if (!video || !canvas) return;
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(video, 0, 0);
+    canvas.toBlob((blob) => {
+      const capturedFile = new File([blob], "camera-capture.jpg", {
+        type: "image/jpeg",
+      });
+      handleFile(capturedFile);
+    });
+    stopCamera();
+  }
+
+  function stopCamera() {
+    if (cameraStream) {
+      cameraStream.getTracks().forEach((t) => t.stop());
+      setCameraStream(null);
+    }
+  }
+
+  function handleFile(selectedFile) {
+    setFile(selectedFile);
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      setImagePreviewSrc(ev.target.result);
+      setDiagnoseResult(null);
+      setDiagnoseError(null);
+    };
+    reader.readAsDataURL(selectedFile);
+  }
+
+  function resetImageUpload() {
+    setFile(null);
+    setImagePreviewSrc(null);
+    setDiagnoseResult(null);
+    setDiagnoseError(null);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+    stopCamera();
+  }
+// function resetImageUpload() {
+//     setShowUploadOptions(true);
+//     setShowCameraSection(false);
+//     setShowImagePreviewSection(false);
+//     setShowImageResponseSection(false);
+//     setOcrText("Processing image...");
+//     setImagePreviewSrc(null);
+//     setImageAnalysis(null);
+//     if (fileInputRef.current) fileInputRef.current.value = "";
+//     if (cameraStream) {
+//       cameraStream.getTracks().forEach((t) => t.stop());
+//       setCameraStream(null);
+//     }
+//   }
+function resetImageUpload() {
+  setShowUploadOptions(true);
+  setShowCameraSection(false);
+  setShowImagePreviewSection(false);
+  setShowImageResponseSection(false);
+  setOcrText("Processing image...");
+  setImagePreviewSrc(null);
+  setDiagnoseResult(null);   // instead of setImageAnalysis
+  setDiagnoseError(null);
+  if (fileInputRef.current) fileInputRef.current.value = "";
+  if (cameraStream) {
+    cameraStream.getTracks().forEach((t) => t.stop());
+    setCameraStream(null);
+  }
+}
+
+
+  // =====================================================
+  // CHAT (kept as in your existing code - simulated/Chatbox component)
+  // =====================================================
+  // function openChatModal() {
+  //   setChatOpen(true);
+  // }
+  function openChatModal(mode = "text") {
+    if (mode === "audio") {
+      openVoiceModal();
+      return;
+    }
+    setChatOpen(true);
+    setShowExamples(!hasStartedChat);
+    // load history from storage (already in state)
+  }
+  function closeChatModal() {
+    setChatOpen(false);
+  }
+// ==================================================
+ // ---------- Voice Modal (simulation) ----------
+  // const [isRecording, setIsRecording] = useState(false);
+  // const [voiceText, setVoiceText] = useState("");
+  // const [voiceResponse, setVoiceResponse] = useState(null);
+
+  // function openVoiceModal() {
+  //   setVoiceOpen(true);
+  // }
+  // function closeVoiceModal() {
+  //   setVoiceOpen(false);
+  // }
+
+  // function toggleRecording() {
+  //   if (!isRecording) {
+  //     setIsRecording(true);
+  //     setVoiceText("Listening...");
+  //     setTimeout(() => {
+  //       setVoiceText("I want to know best fertilizer for rice");
+  //       // simulate sending
+  //       const question = "I want to know best fertilizer for rice";
+  //       setVoiceResponse("Processing...");
+  //       setTimeout(() => {
+  //         const resp = generateFarmingResponse(question);
+  //         setVoiceResponse(resp);
+  //         saveChatHistory(question, resp);
+  //       }, 1400);
+  //     }, 1400);
+  //   } else {
+  //     setIsRecording(false);
+  //     setVoiceText("Tap to speak");
+  //   }
+  // }
+  
+// function generateFarmingResponse(query) {
+//   // Placeholder: replace with your AI backend call later
+//   if (query.toLowerCase().includes("fertilizer")) {
+//     return "Use 120:60:40 NPK per hectare for rice.";
+//   }
+//   return "I don’t have a specific answer, but please consult an agronomist.";
+// }
+
+// function saveChatHistory(question, answer) {
+//   console.log("Saved chat:", { question, answer });
+// }
+
+  // ---------- Voice Modal (simulation) ----------
+  const [isRecording, setIsRecording] = useState(false);
+  const [voiceText, setVoiceText] = useState("");
+  const [voiceResponse, setVoiceResponse] = useState(null);
+
+  function openVoiceModal() {
+    setVoiceOpen(true);
+  }
+  function closeVoiceModal() {
+    setVoiceOpen(false);
+  }
+
+  function toggleRecording() {
+    if (!isRecording) {
+      setIsRecording(true);
+      setVoiceText("Listening...");
+      setTimeout(() => {
+        setVoiceText("I want to know best fertilizer for rice");
+        // simulate sending
+        const question = "I want to know best fertilizer for rice";
+        setVoiceResponse("Processing...");
+        setTimeout(() => {
+          const resp = generateFarmingResponse(question);
+          setVoiceResponse(resp);
+          saveChatHistory(question, resp);
+        }, 1400);
+      }, 1400);
+    } else {
+      setIsRecording(false);
+      setVoiceText("Tap to speak");
+    }
+  }
+
+
+  // ---------- Crop Calendar ----------
+  // We'll port essential cropData from your JS (rice + tomato etc.)
+  const cropData = {
+    rice: {
+      name: "Rice (धान)",
+      type: "Cereal",
+      duration: "120-150 days",
+      seasons: ["kharif", "rabi"],
+      regions: ["all"],
+      overview: {
+        description: "Rice is the staple food crop of India, grown in diverse agro-climatic conditions.",
+        varieties: ["Basmati", "Non-Basmati", "Aromatic", "Fine grain", "Medium grain", "Coarse grain"],
+        soilType: "Clay loam, silty clay loam with pH 5.5-7.0",
+        climate: "Tropical and subtropical with 20-35°C temperature",
+        rainfall: "1000-2000mm annually",
+      },
+      cultivation: {
+        landPrep: "Deep plowing, puddling, leveling for water retention",
+        seedRate: "20-25 kg/hectare for transplanting, 60-80 kg/hectare for direct seeding",
+        spacing: "20cm x 15cm for transplanting",
+        fertilizer: "120:60:40 NPK kg/hectare",
+        irrigation: "Continuous flooding during vegetative stage, intermittent during reproductive stage",
+      },
+      timeline: {
+        kharif: [
+          { stage: "Land Preparation", period: "May-June", icon: "🚜", details: "Deep plowing, puddling, leveling. Apply FYM 10-12 tons/hectare." },
+          { stage: "Nursery Preparation", period: "June", icon: "🌱", details: "Prepare nursery beds, sow seeds. Maintain 2-3cm water level." },
+          { stage: "Transplanting", period: "July", icon: "🌾", details: "Transplant 25-30 day old seedlings. Maintain proper spacing." },
+          { stage: "Vegetative Growth", period: "July-August", icon: "🌿", details: "Apply nitrogen fertilizer. Maintain water level 2-5cm." },
+          { stage: "Reproductive Phase", period: "September", icon: "🌸", details: "Panicle initiation. Apply potash fertilizer. Control pests." },
+          { stage: "Grain Filling", period: "October", icon: "🌾", details: "Intermittent irrigation. Monitor for diseases." },
+          { stage: "Maturity & Harvest", period: "November", icon: "🚛", details: "Harvest when 80% grains turn golden. Proper drying essential." },
+        ],
+        rabi: [
+          { stage: "Land Preparation", period: "October-November", icon: "🚜", details: "Prepare fields after kharif harvest. Level properly." },
+          { stage: "Sowing", period: "November-December", icon: "🌱", details: "Direct seeding or transplanting. Use short duration varieties." },
+          { stage: "Vegetative Growth", period: "December-January", icon: "🌿", details: "Regular irrigation. Apply nitrogen in splits." },
+          { stage: "Reproductive Phase", period: "February", icon: "🌸", details: "Flowering stage. Ensure adequate water supply." },
+          { stage: "Grain Filling", period: "March", icon: "🌾", details: "Grain development. Reduce irrigation frequency." },
+          { stage: "Harvest", period: "April", icon: "🚛", details: "Harvest before summer heat. Proper storage important." },
+        ],
+      },
+      diseases: [
+        { name: "Rust (Yellow, Brown, Black)", symptoms: "Rust colored pustules", control: "Resistant varieties, fungicide spray" },
+        { name: "Powdery Mildew", symptoms: "White powdery growth", control: "Sulfur dusting, systemic fungicides" },
+      ],
+      pests: [{ name: "Aphids", symptoms: "Yellowing, stunted growth", control: "Insecticidal soap, predatory insects" }],
+      market: { msp: "₹2,275/quintal (2024-25)", avgPrice: "₹2,400-2,800/quintal", demand: "High domestic demand", storage: "Moisture content below 12%, pest-free storage" },
+    },
+    tomato: {
+      name: "Tomato (टमाटर)",
+      type: "Vegetable",
+      duration: "90-120 days",
+      seasons: ["kharif", "rabi", "zaid"],
+      regions: ["all"],
+      overview: {
+        description: "Tomato is one of the most important vegetable crops grown worldwide.",
+        varieties: ["Determinate", "Indeterminate", "Cherry", "Hybrid"],
+        soilType: "Well-drained sandy loam with pH 6.0-7.0",
+        climate: "Warm season crop, temperature 20-25°C optimal",
+        rainfall: "600-750mm annually",
+      },
+      cultivation: {
+        landPrep: "Deep plowing, raised beds for drainage",
+        seedRate: "300-400g/hectare",
+        spacing: "60cm x 45cm",
+        fertilizer: "120:80:50 NPK kg/hectare",
+        irrigation: "Drip irrigation preferred, avoid water stress",
+      },
+      timeline: {
+        rabi: [
+          { stage: "Nursery Preparation", period: "September", icon: "🌱", details: "Prepare nursery beds, sow seeds in pro-trays." },
+          { stage: "Land Preparation", period: "October", icon: "🚜", details: "Prepare raised beds, install drip irrigation." },
+          { stage: "Transplanting", period: "October-November", icon: "🌿", details: "Transplant 4-5 week old seedlings." },
+          { stage: "Vegetative Growth", period: "November-December", icon: "🌿", details: "Regular irrigation, apply nitrogen fertilizer." },
+          { stage: "Flowering", period: "December-January", icon: "🌸", details: "Support plants with stakes. Apply phosphorus." },
+          { stage: "Fruit Development", period: "January-February", icon: "🍅", details: "Regular harvesting begins. Apply potash." },
+          { stage: "Peak Harvest", period: "February-March", icon: "🚛", details: "Daily harvesting. Proper post-harvest handling." },
+        ],
+      },
+      diseases: [{ name: "Early Blight", symptoms: "Dark spots with concentric rings", control: "Fungicide spray, crop rotation" }],
+      pests: [{ name: "Fruit Borer", symptoms: "Holes in fruits", control: "Pheromone traps, Bt spray" }],
+      market: { msp: "Not applicable", avgPrice: "₹1,500-4,000/quintal (seasonal)", demand: "High demand year-round", storage: "Short shelf life" },
+    },
+  };
+
+  // Crop calendar UI specific state
+  const [selectedCropKey, setSelectedCropKey] = useState("rice");
+  const [selectedSeason, setSelectedSeason] = useState("kharif");
+  const [selectedRegion, setSelectedRegion] = useState("south");
+  const [timelineHtml, setTimelineHtml] = useState("");
+  const [cropOverviewHtml, setCropOverviewHtml] = useState("");
+  const [cultivationHtml, setCultivationHtml] = useState("");
+  const [diseasesHtml, setDiseasesHtml] = useState("");
+  const [marketInfoHtml, setMarketInfoHtml] = useState("");
+  const [seasonTipsHtml, setSeasonTipsHtml] = useState("");
+
+  function openCropCalendarModal() {
+    setCropCalendarOpen(true);
+    // init with current selections
+    updateCropCalendar(selectedCropKey, selectedSeason, selectedRegion);
+  }
+  function closeCropCalendarModal() {
+    setCropCalendarOpen(false);
+  }
+// ==============================
+// WEATHER (real backend API + UI like code2)
+// ==============================
+// const [locationInput, setLocationInput] = useState("");
+// const [weatherDisplayData, setWeatherDisplayData] = useState(null);
+// const [loadingWeather, setLoadingWeather] = useState(false);
+// const [weatherError, setWeatherError] = useState(null);
+// const [activeWeatherTab, setActiveWeatherTab] = useState("current");
+
+// async function loadWeatherByCoords(lat, lon) {
+//   setLoadingWeather(true);
+//   setWeatherError(null);
+//   try {
+//     const res = await axios.get("http://localhost:5000/api/weather", {
+//       params: { lat, lon },
+//       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+//     });
+//     setWeatherDisplayData(res.data.weather);
+//   } catch (err) {
+//     console.error("Weather error:", err);
+//     setWeatherError("Failed to fetch weather.");
+//   } finally {
+//     setLoadingWeather(false);
+//   }
+// }
+
+// async function loadWeatherByLocation(location = "Palakkad") {
+//   setLoadingWeather(true);
+//   setWeatherError(null);
+//   try {
+//     const res = await axios.get("http://localhost:5000/api/weather", {
+//       params: { location },
+//       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+//     });
+//     setWeatherDisplayData(res.data.weather);
+//   } catch (err) {
+//     console.error("Weather error:", err);
+//     setWeatherError("Failed to fetch weather.");
+//   } finally {
+//     setLoadingWeather(false);
+//   }
+// }
+
+// function openWeatherModal() {
+//   setWeatherOpen(true);
+//   loadWeatherByLocation("Palakkad"); // default
+// }
+
+// function closeWeatherModal() {
+//   setWeatherOpen(false);
+// }
+
+// function searchLocation() {
+//   if (locationInput.trim()) {
+//     loadWeatherByLocation(locationInput.trim());
+//   }
+// }
+
+// function getCurrentLocation() {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(
+//       (pos) => loadWeatherByCoords(pos.coords.latitude, pos.coords.longitude),
+//       () => alert("Unable to get your location. Please search manually.")
+//     );
+//   } else {
+//     alert("Geolocation not supported in this browser.");
+//   }
+// }
+
+  function updateCropCalendar(cropKey = selectedCropKey, season = selectedSeason, region = selectedRegion) {
+    const data = cropData[cropKey];
+    if (!data) return;
+    const seasonName = season.charAt(0).toUpperCase() + season.slice(1);
+    // timeline
+    const timelineArr = data.timeline?.[season] || data.timeline?.kharif || [];
+    setTimelineHtml(
+      timelineArr
+        .map(
+          (stage) =>
+            `<div class="timeline-item"><div class="timeline-icon">${stage.icon}</div><div class="timeline-content"><h5>${stage.stage}</h5><div class="timeline-period">${stage.period}</div><p>${stage.details}</p></div></div>`
+        )
+        .join("")
+    );
+    // overview
+    setCropOverviewHtml(`
+      <div class="overview-grid">
+        <div class="overview-item"><h5>Description</h5><p>${data.overview.description}</p></div>
+        <div class="overview-item"><h5>Duration</h5><p>${data.duration}</p></div>
+        <div class="overview-item"><h5>Soil Type</h5><p>${data.overview.soilType}</p></div>
+        <div class="overview-item"><h5>Climate</h5><p>${data.overview.climate}</p></div>
+        <div class="overview-item"><h5>Rainfall</h5><p>${data.overview.rainfall}</p></div>
+        <div class="overview-item"><h5>Varieties</h5><ul>${(data.overview.varieties || []).map((v) => `<li>${v}</li>`).join("")}</ul></div>
+      </div>
+    `);
+    // cultivation
+    setCultivationHtml(`
+      <div class="cultivation-grid">
+        <div class="cultivation-item"><h5>Land Preparation</h5><p>${data.cultivation?.landPrep || ""}</p></div>
+        <div class="cultivation-item"><h5>Seed Rate</h5><p>${data.cultivation?.seedRate || ""}</p></div>
+        <div class="cultivation-item"><h5>Spacing</h5><p>${data.cultivation?.spacing || ""}</p></div>
+        <div class="cultivation-item"><h5>Fertilizer</h5><p>${data.cultivation?.fertilizer || ""}</p></div>
+        <div class="cultivation-item"><h5>Irrigation</h5><p>${data.cultivation?.irrigation || ""}</p></div>
+      </div>
+    `);
+    // diseases
+    setDiseasesHtml(`
+      <div class="diseases-section">
+        ${(data.diseases || []).map(d => `<div class="disease-item"><h5>${d.name}</h5><p><strong>Symptoms:</strong> ${d.symptoms}</p><p><strong>Control:</strong> ${d.control}</p></div>`).join("")}
+      </div>
+    `);
+    // market info
+    setMarketInfoHtml(`
+      <div class="market-grid">
+        <div class="market-item"><h5>Current Price Range</h5><p>${data.market?.avgPrice || "N/A"}</p></div>
+        <div class="market-item"><h5>MSP</h5><p>${data.market?.msp || "N/A"}</p></div>
+        <div class="market-item"><h5>Demand</h5><p>${data.market?.demand || "N/A"}</p></div>
+        <div class="market-item"><h5>Storage</h5><p>${data.market?.storage || "N/A"}</p></div>
+      </div>
+    `);
+    // season tips
+    setSeasonTipsHtml(`
+      <div class="tips-grid">
+        <div class="tip-card">Monitor soil moisture and avoid water stress.</div>
+        <div class="tip-card">Use certified seeds for better germination.</div>
+        <div class="tip-card">Apply fertilizer based on soil test recommendations.</div>
+      </div>
+    `);
+  }
+
+  // ---------- Market (placeholder) ----------
+  const [marketLocation, setMarketLocation] = useState("palakkad");
+  const [marketFilter, setMarketFilter] = useState("all");
+  const [marketTimeFilter, setMarketTimeFilter] = useState("today");
+  const [priceTableBodyHtml, setPriceTableBodyHtml] = useState("");
+  const [pageNum, setPageNum] = useState(1);
+  const PAGE_SIZE = 8;
+  const mockMarketData = [
+    { crop: "Rice", price: "₹2,500", change: "+2%", min: "₹2,200", max: "₹2,700", volume: "1200 qt" },
+    { crop: "Wheat", price: "₹2,800", change: "-1%", min: "₹2,600", max: "₹2,950", volume: "800 qt" },
+    { crop: "Tomato", price: "₹3,200", change: "+5%", min: "₹2,900", max: "₹3,500", volume: "500 qt" },
+    { crop: "Potato", price: "₹1,200", change: "+0.5%", min: "₹1,100", max: "₹1,300", volume: "300 qt" },
+    { crop: "Onion", price: "₹2,100", change: "-0.8%", min: "₹2,000", max: "₹2,300", volume: "400 qt" },
+    { crop: "Cotton", price: "₹45,000", change: "+1%", min: "₹43,000", max: "₹46,000", volume: "60 kg" },
+    { crop: "Chili", price: "₹9,000", change: "+2%", min: "₹8,500", max: "₹9,200", volume: "70 kg" },
+    { crop: "Maize", price: "₹2,100", change: "0%", min: "₹2,000", max: "₹2,300", volume: "600 qt" },
+    // ... more rows to paginate
+  ];
+
+  function updateMarketTable() {
+    const start = (pageNum - 1) * PAGE_SIZE;
+    const page = mockMarketData.slice(start, start + PAGE_SIZE);
+    setPriceTableBodyHtml(
+      page
+        .map(
+          (r, i) =>
+            `<tr>
+              <td>${r.crop}</td>
+              <td>${r.price}</td>
+              <td>${r.change}</td>
+              <td>${r.min}</td>
+              <td>${r.max}</td>
+              <td>${r.volume}</td>
+              <td><button class="btn" onclick="alert('View ${r.crop}')">View</button></td>
+            </tr>`
+        )
+        .join("")
+    );
+  }
 
   useEffect(() => {
-    if (chatMessagesRef.current) {
-      chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
+    updateMarketTable();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageNum]);
+
+  function previousPage() {
+    setPageNum((p) => Math.max(1, p - 1));
+  }
+  function nextPage() {
+    const max = Math.ceil(mockMarketData.length / PAGE_SIZE);
+    setPageNum((p) => Math.min(max, p + 1));
+  }
+
+  function refreshMarketData() {
+    // simulate refresh
+    alert("Market data refreshed (simulated).");
+    updateMarketTable();
+  }
+
+  function searchMarketData() {
+    // simple local filter (simulate)
+    const q = document.getElementById("marketSearch")?.value?.toLowerCase() || "";
+    const filtered =
+      q.length > 0 ? mockMarketData.filter((m) => m.crop.toLowerCase().includes(q)) : mockMarketData;
+    setPriceTableBodyHtml(
+      filtered
+        .slice(0, PAGE_SIZE)
+        .map(
+          (r) =>
+            `<tr>
+              <td>${r.crop}</td>
+              <td>${r.price}</td>
+              <td>${r.change}</td>
+              <td>${r.min}</td>
+              <td>${r.max}</td>
+              <td>${r.volume}</td>
+              <td><button class="btn" onclick="alert('View ${r.crop}')">View</button></td>
+            </tr>`
+        )
+        .join("")
+    );
+  }
+
+  // ---------- Community Forum ----------
+  const [forumPosts, setForumPosts] = useState([
+    { title: "Best fertilizer for wheat?", content: "Looking for suggestions!", category: "Advice", id: Date.now() - 10000 },
+  ]);
+  const [postTitle, setPostTitle] = useState("");
+  const [postContent, setPostContent] = useState("");
+  const [postCategory, setPostCategory] = useState("General");
+
+  function openCommunityModal() {
+    setCommunityOpen(true);
+  }
+  function closeCommunityModal() {
+    setCommunityOpen(false);
+  }
+
+  function addForumPost() {
+    if (!postTitle.trim() || !postContent.trim()) {
+      alert("Please enter title and content.");
+      return;
     }
-  }, [chatMessages]);
+    const item = { title: postTitle, content: postContent, category: postCategory, id: Date.now() };
+    setForumPosts((prev) => [item, ...prev]);
+    setPostTitle("");
+    setPostContent("");
+    setPostCategory("General");
+  }
 
-  // ----------------- APIs -----------------
-  async function fetchWeather(city = "Palakkad") {
-    try {
-      const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
-      const resp = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
-      );
-      const data = await resp.json();
-      return `Weather in ${city}: ${data.weather[0].description}, Temp: ${data.main.temp}°C, Humidity: ${data.main.humidity}%`;
-    } catch {
-      return "⚠️ Failed to fetch weather.";
+  // ---------- Learning Hub & Rewards (placeholders) ----------
+  function openLearningHub() {
+    setLearningOpen(true);
+  }
+  function openRewardsPopup() {
+    setRewardsOpen(true);
+  }
+
+  // ---------- Misc helpers for injecting HTML into preserved sections ----------
+  useEffect(() => {
+    // timeline container
+    const timelineContainer = document.getElementById("timelineContainer");
+    if (timelineContainer) timelineContainer.innerHTML = timelineHtml;
+    const cropOverview = document.getElementById("cropOverview");
+    if (cropOverview) cropOverview.innerHTML = cropOverviewHtml;
+    const cultivationInfo = document.getElementById("cultivationInfo");
+    if (cultivationInfo) cultivationInfo.innerHTML = cultivationHtml;
+    const diseasesInfo = document.getElementById("diseasesInfo");
+    if (diseasesInfo) diseasesInfo.innerHTML = diseasesHtml;
+    const marketInfo = document.getElementById("marketInfo");
+    if (marketInfo) marketInfo.innerHTML = marketInfoHtml;
+    const seasonTips = document.getElementById("seasonTips");
+    if (seasonTips) seasonTips.innerHTML = seasonTipsHtml;
+
+    // price table body
+    const priceTableBody = document.getElementById("priceTableBody");
+    if (priceTableBody) priceTableBody.innerHTML = priceTableBodyHtml;
+    // page info
+    const pageInfo = document.getElementById("pageInfo");
+    if (pageInfo) {
+      const max = Math.ceil(mockMarketData.length / PAGE_SIZE) || 1;
+      pageInfo.textContent = `Page ${pageNum} of ${max}`;
     }
-  }
+  }, [timelineHtml, cropOverviewHtml, cultivationHtml, diseasesHtml, marketInfoHtml, seasonTipsHtml, priceTableBodyHtml, pageNum]);
 
-  async function fetchMarketPrice(crop = "wheat") {
-    try {
-      const url = import.meta.env.VITE_MARKET_API_URL;
-      const apiKey = import.meta.env.VITE_MARKET_API_KEY;
-      if (!url || !apiKey) {
-        return `Latest ${crop} price (mock): ₹2200/quintal at Palakkad market.`;
-      }
-      const resp = await fetch(`${url}?crop=${crop}`, {
-        headers: { Authorization: `Bearer ${apiKey}` },
-      });
-      const data = await resp.json();
-      return `Latest price of ${crop}: ₹${data.price}/quintal at ${data.market}`;
-    } catch {
-      return "⚠️ Failed to fetch market prices.";
-    }
-  }
+  // ---------- Initialization ----------
+  useEffect(() => {
+    // initial crop calendar data
+    updateCropCalendar();
+  }, []); // eslint-disable-line
 
-  async function fetchCropCalendar(crop = "wheat") {
-    return cropCalendar[crop.toLowerCase()] || "No calendar data available.";
-  }
 
-  // ----------------- AI Chat with RAG -----------------
-  async function generateFarmingResponse(question) {
-    let context = "";
-
-    if (question.toLowerCase().includes("weather")) {
-      context = await fetchWeather("Palakkad");
-    } else if (question.toLowerCase().includes("price") || question.toLowerCase().includes("market")) {
-      context = await fetchMarketPrice("wheat");
-    } else if (
-      question.toLowerCase().includes("sow") ||
-      question.toLowerCase().includes("harvest") ||
-      question.toLowerCase().includes("calendar")
-    ) {
-      context = await fetchCropCalendar("wheat");
-    }
-
-    try {
-      const res = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
-        },
-        body: JSON.stringify({
-          model: "gpt-4o-mini",
-          messages: [
-            {
-              role: "system",
-              content:
-                "You are FarmAssist, an AI Krishi Advisor. Use live data context if provided, else answer from knowledge.",
-            },
-            { role: "user", content: `${question}\n\nContext: ${context}` },
-          ],
-        }),
-      });
-
-      const data = await res.json();
-      return data.choices?.[0]?.message?.content?.trim() || "⚠️ No response.";
-    } catch (err) {
-      console.error(err);
-      return "⚠️ Failed to connect to AI.";
-    }
-  }
-
-  async function sendMessage() {
-    if (!chatInput.trim()) return;
-    const msg = chatInput;
-    setChatMessages((p) => [...p, { sender: "user", text: msg }, { sender: "bot", text: "⏳ Thinking..." }]);
-    setChatInput("");
-
-    const reply = await generateFarmingResponse(msg);
-    setChatMessages((p) => {
-      const copy = [...p];
-      copy[copy.length - 1] = { sender: "bot", text: reply };
-      return copy;
-    });
-  }
-
-  // ----------------- Image Analysis -----------------
-  const fileInputRef = useRef(null);
-  const [imagePreviewSrc, setImagePreviewSrc] = useState(null);
-  const [ocrText, setOcrText] = useState("");
-  const [imageAnalysis, setImageAnalysis] = useState("");
-
-  async function handleFileUpload(e) {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = async (ev) => {
-      setImagePreviewSrc(ev.target.result);
-      setOcrText("⏳ Analyzing image...");
-      setImageAnalysis("");
-
-      try {
-        const res = await fetch("https://api.openai.com/v1/chat/completions", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
-          },
-          body: JSON.stringify({
-            model: "gpt-4-vision-preview",
-            messages: [
-              { role: "system", content: "You are an agronomist AI. Analyze crop images." },
-              {
-                role: "user",
-                content: [
-                  { type: "text", text: "Analyze this crop image and suggest possible treatments." },
-                  { type: "image_url", image_url: ev.target.result },
-                ],
-              },
-            ],
-            max_tokens: 400,
-          }),
-        });
-        const data = await res.json();
-        const result = data.choices?.[0]?.message?.content?.trim() || "⚠️ No analysis.";
-        setOcrText("✅ Image processed.");
-        setImageAnalysis(result);
-      } catch (err) {
-        console.error(err);
-        setOcrText("⚠️ Failed to analyze image.");
-      }
-    };
-    reader.readAsDataURL(file);
-  }
-
-  // ----------------- UI -----------------
+  // =====================================================
+  // MAIN UI RENDER
+  // =====================================================
   return (
-    <div>
-      {/* Header */}
+    
+    <div >
       <header className="header">
         <div className="left-section">
           <img src="/logo.png" alt="Farm Assist Logo" className="logo" />
-          <span className="welcome">Hello, <strong>Ramu</strong></span>
-          <span className="location"><i className="fas fa-map-marker-alt"></i> Palakkad</span>
+          <span className="welcome">Hello, <strong id="userName">Krish Gupta</strong></span>
+          <span className="location"><i className="fas fa-map-marker-alt"></i> <span id="userLocation">Ghaziabad</span></span>
         </div>
+
         <div className="right-section">
           <div className="profile-container">
             <img
@@ -942,8 +784,8 @@ export default function Dashboard() {
             />
             <div className="profile-popup" id="profilePopup" style={{ display: profileOpen ? "block" : "none" }}>
               <p><strong>Name:</strong> Ramu</p>
-              <p><strong>Queries Asked:</strong> {chatMessages.filter(m => m.sender === "user").length}</p>
-              <p><strong>Points Earned:</strong> {chatMessages.filter(m => m.sender === "user").length * 10}</p>
+              <p><strong>Queries Asked:</strong> 5</p>
+              <p><strong>Points Earned:</strong> 120</p>
               <p><strong>Crop:</strong> Wheat</p>
             </div>
           </div>
@@ -951,70 +793,351 @@ export default function Dashboard() {
         </div>
       </header>
 
-      {/* Feature Cards */}
+{/* wavy sec */}
+{/* Wavy / Hero */}
+      <section className="wavy-section">
+        <div className="wavy-bg">
+          <div className="wavy-content">
+            <div className="wavy-text">
+              <h1>AI That Speaks Farmer</h1>
+              <p>Ask any question about your crops, pests, weather, or farm care, and get instant advice from our smart AI assistant</p>
+            </div>
+            <div className="wavy-image"></div>
+          </div>
+        </div>
+      </section>
+{/* *********************** */}
+{/* Cards Section */}
       <section className="cards-section">
         <div className="card">
           <i className="fas fa-keyboard fa-3x card-icon"></i>
-          <p>Type your farming query</p>
-          <button onClick={() => setChatOpen(true)}>Chat</button>
+          <p>Type your question to get instant advice</p>
+          <button onClick={() => setChatOpen(true)}>Type Query</button>
+        </div>
+
+         {/* <div className="card">
+          <i className="fas fa-microphone fa-3x card-icon"></i>
+          <p>Speak your query to get instant advice</p>
+          <button onClick={openVoiceModal}>Record Voice Query</button>
+        </div> */}
+ <div className="card">
+          <i className="fas fa-microphone fa-3x card-icon"></i>
+          <p>Speak your query to get instant advice</p>
+          <button onClick={() => openChatModal("audio")}>Record Voice Query</button>
         </div>
         <div className="card">
           <i className="fas fa-image fa-3x card-icon"></i>
-          <p>Upload a crop image</p>
-          <button onClick={() => setImageOpen(true)}>Upload</button>
+          <p>Upload an image to get instant analysis</p>
+          <button onClick={openImageModal}>Upload Image</button>
         </div>
       </section>
 
-      {/* Chat Modal */}
-      {isChatOpen && (
-        <div className="modal">
-          <div className="modal-content chatbot-modal">
-            <div className="chatbot-header">
-              <h3>Farm Assist Chatbot</h3>
-              <span className="close" onClick={() => setChatOpen(false)}>&times;</span>
+
+      {/* <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-bold text-green-700">
+          🌾
+           Farmer Dashboard
+        </h1>
+        <button
+          onClick={() => setChatOpen(true)}
+          className=""
+        >
+          💬 Ask AI
+        </button>
+      </div> */}
+
+{/* Grid features */}
+      <div className="container">
+        <section className="cards-grid">
+          <div className="card" onClick={openCropCalendarModal}><h3>Crop Calendar</h3><p>Track sowing, irrigation, and harvest schedules.</p></div>
+
+          <button className="card" onClick={openWeatherModal}>{loadingWeather ? "Loading..." : "Get Weather"}<h3>Weather Alerts</h3><p>Stay updated with real-time weather conditions for your region.</p></button>
+           {weatherError && <p className="text-red-600 mt-2">{weatherError}</p>}
+          {weatherDisplayData && (
+            <div className="mt-3">
+              <p>Temp: {weatherDisplayData.temperature}°C</p>
+              <p>Humidity: {weatherDisplayData.humidity}%</p>
+              <p>{weatherDisplayData.description}</p>
+              <p className="text-xs text-gray-500">
+                Provider: {weatherDisplayData.provider}
+              </p>
             </div>
-            <div className="chatbot-container">
-              <div className="chat-messages" ref={chatMessagesRef}>
-                {chatMessages.map((m, i) => (
-                  <div key={i} className={m.sender === "user" ? "user-message" : "bot-message"}>
-                    <div className="message-avatar">{m.sender === "user" ? "👤" : "🤖"}</div>
-                    <div className="message-content">{m.text}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="chat-input-area">
-                <input
-                  value={chatInput}
-                  onChange={(e) => setChatInput(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-                  placeholder="Ask about crops, prices, weather..."
-                />
-                <button onClick={sendMessage}><i className="fas fa-paper-plane"></i></button>
+          )}
+          {isWeatherOpen && (
+  <div className="modal-overlay">
+    <div className="modal weather-modal">
+      <div className="modal-header">
+        <h2>🌦 Weather</h2>
+        <button className="close-btn" onClick={closeWeatherModal}>✖</button>
+      </div>
+
+{/* Voice Modal */}
+      {isVoiceOpen && (
+        <div id="voiceModal" className="modal" style={{ display: "block" }}>
+          <div className="modal-content voice-modal">
+            <div className="voice-header"><h3>Voice Query</h3><span className="close" onClick={closeVoiceModal}>&times;</span></div>
+            <div className="voice-container">
+              <div className="language-selector"><span>English</span></div>
+              <div className="voice-interface">
+                <div className="mic-container">
+                  <button className="mic-button" id="micButton" onClick={toggleRecording}><i className="fas fa-microphone" id="micIcon"></i></button>
+                  <div className="recording-status" id="recordingStatus">{isRecording ? "Listening..." : "Tap to speak"}</div>
+                </div>
+                <div className="voice-text-display" id="voiceTextDisplay"><p>{voiceText || "Your speech will appear here..."}</p></div>
+                {voiceResponse && <div className="voice-response" id="voiceResponse"><h4>Response:</h4><div className="response-content" id="responseContent">{voiceResponse}</div></div>}
               </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* Image Modal */}
-      {isImageOpen && (
-        <div className="modal">
-          <div className="modal-content image-modal">
-            <div className="image-header">
-              <h3>Upload Crop Image</h3>
-              <span className="close" onClick={() => setImageOpen(false)}>&times;</span>
-            </div>
-            <input type="file" accept="image/*" ref={fileInputRef} onChange={handleFileUpload} />
-            {imagePreviewSrc && (
-              <div className="image-preview-section">
-                <img src={imagePreviewSrc} alt="Preview" />
-                <p>{ocrText}</p>
-                {imageAnalysis && <div className="image-response">{imageAnalysis}</div>}
+      <div className="modal-content">
+        {/* Search & Location Controls */}
+        <div className="flex gap-2 mb-3">
+          <input
+            type="text"
+            placeholder="Enter location"
+            value={locationInput}
+            onChange={(e) => setLocationInput(e.target.value)}
+            className="flex-1 px-2 py-1 border rounded-md"
+          />
+          <button
+            onClick={searchLocation}
+            className="px-3 py-1 bg-green-600 text-white rounded-md"
+          >
+            Search
+          </button>
+          <button
+            onClick={getCurrentLocation}
+            className="px-3 py-1 bg-blue-600 text-white rounded-md"
+          >
+            📍 Current
+          </button>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex gap-2 mb-3">
+          <button
+            onClick={() => setActiveWeatherTab("current")}
+            className={`px-3 py-1 rounded-md ${
+              activeWeatherTab === "current"
+                ? "bg-green-600 text-white"
+                : "bg-gray-200"
+            }`}
+          >
+            Current
+          </button>
+          <button
+            onClick={() => setActiveWeatherTab("forecast")}
+            className={`px-3 py-1 rounded-md ${
+              activeWeatherTab === "forecast"
+                ? "bg-green-600 text-white"
+                : "bg-gray-200"
+            }`}
+          >
+            Forecast
+          </button>
+        </div>
+
+        {/* Loading & Error */}
+        {loadingWeather && <p>Loading...</p>}
+        {weatherError && <p className="text-red-500">{weatherError}</p>}
+
+        {/* Weather Data */}
+        {weatherDisplayData && (
+          <div>
+            {activeWeatherTab === "current" && (
+              <div>
+                <p>🌍 Location: {weatherDisplayData.location}</p>
+                <p>🌡 Temp: {weatherDisplayData.temperature}°C</p>
+                <p>💧 Humidity: {weatherDisplayData.humidity}%</p>
+                <p>🌤 {weatherDisplayData.description}</p>
+                <p className="text-xs text-gray-500">
+                  Provider: {weatherDisplayData.provider}
+                </p>
+              </div>
+            )}
+
+            {activeWeatherTab === "forecast" && weatherDisplayData.forecast && (
+              <div className="grid grid-cols-2 gap-2">
+                {weatherDisplayData.forecast.map((f, idx) => (
+                  <div
+                    key={idx}
+                    className="p-2 border rounded-md bg-gray-50 text-center"
+                  >
+                    <p>{f.day}</p>
+                    <p>{f.icon}</p>
+                    <p>{f.high}° / {f.low}°</p>
+                  </div>
+                ))}
               </div>
             )}
           </div>
+        )}
+      </div>
+    </div>
+  </div>
+)}
+
+          <div className="card" onClick={() => setMarketOpen(true)}><h3>Market Updates</h3><p>Check current crop prices and trends at local markets.</p></div>
+          <div className="card" onClick={openCommunityModal}><h3>Community Forum</h3><p>Connect and discuss with other farmers.</p></div>
+
+          <div className="card row2" onClick={openLearningHub}><h3>Learning Hub</h3><p>Watch videos and take quizzes to improve skills.</p></div>
+          <div className="card row2" onClick={openRewardsPopup}><h3>Rewards & Coins</h3><p>Earn points, badges, and climb the leaderboard by completing farming tasks.</p></div>
+          <div className="card row2"><h3>Officer Escalation</h3><p>Send complex queries directly to local agricultural officers for expert guidance.</p></div>
+        </section>
+      </div>
+
+
+      {/* ---------- GRID CONTENT ---------- */}
+      {/* <div className="grid md:grid-cols-2 gap-6">
+        {/* WEATHER */}
+        {/* <div className="p-4 bg-white rounded-2xl shadow-md">
+          <h2 className="text-lg font-semibold mb-2">🌦 Weather</h2>
+          <button
+            onClick={openWeatherModal}
+            className="px-3 py-1 bg-green-600 text-white rounded-md"
+          >
+            {loadingWeather ? "Loading..." : "Get Weather"}
+          </button>
+          {weatherError && <p className="text-red-600 mt-2">{weatherError}</p>}
+          {weatherDisplayData && (
+            <div className="mt-3">
+              <p>Temp: {weatherDisplayData.temperature}°C</p>
+              <p>Humidity: {weatherDisplayData.humidity}%</p>
+              <p>{weatherDisplayData.description}</p>
+              <p className="text-xs text-gray-500">
+                Provider: {weatherDisplayData.provider}
+              </p>
+            </div>
+          )}
+        </div> */} 
+
+        {/* IMAGE DIAGNOSE */}
+        <div className="p-4 bg-white rounded-2xl shadow-md">
+          <h2 className="text-lg font-semibold mb-2">🌱 Diagnose Crop</h2>
+          <button
+            onClick={openImageModal}
+            className="px-3 py-1 bg-green-600 text-white rounded-md"
+          >
+            Upload Image
+          </button>
+        </div>
+      {/* </div> */}
+
+      // {/* ---------- IMAGE MODAL ---------- */}
+      {isImageOpen && (
+        <div className="modal" style={{ display: "block" }}>
+          <div className="modal-content image-modal">
+            <div className="image-header">
+              <h2>Upload Image for Analysis</h2>
+              <span className="close" onClick={closeImageModal}>
+                &times;
+              </span>
+            </div>
+
+            <div className="image-container">
+              {!file && !cameraStream && (
+                <div className="upload-options">
+                  <div className="upload-option" onClick={openCamera}>
+                    <i className="fas fa-camera fa-2x"></i>
+                    <h4>Camera</h4>
+                    <p>Take a photo with your camera</p>
+                  </div>
+                  <div
+                    className="upload-option"
+                    onClick={() => fileInputRef.current.click()}
+                  >
+                    <i className="fas fa-upload fa-2x"></i>
+                    <h4>Upload File</h4>
+                    <p>Choose image from your device</p>
+                  </div>
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    accept="image/*"
+                    style={{ display: "none" }}
+                    onChange={(e) => handleFile(e.target.files[0])}
+                  />
+                </div>
+              )}
+
+              {showCameraSection && (
+                <div className="camera-section">
+                  <video ref={cameraVideoRef} autoPlay id="cameraVideo"></video>
+                  <div className="camera-controls">
+                    <button className="capture-btn" onClick={captureImage}>
+                      Capture
+                    </button>
+                    <button className="cancel-btn" onClick={stopCamera}>
+                      Cancel
+                    </button>
+                  </div>
+                  <canvas ref={cameraCanvasRef} style={{ display: "none" }}></canvas>
+                </div>
+              )}
+
+              {file && (
+                <div className="image-preview-section">
+                  <div className="image-preview">
+                    <img src={imagePreviewSrc} alt="Preview" />
+                    <div className="ocr-actions">
+                      <button
+                        className="process-btn"
+                        onClick={uploadDiagnose}
+                        disabled={diagnoseLoading}
+                      >
+                        {diagnoseLoading ? "Analyzing..." : "Analyze"}
+                      </button>
+                      <button className="reset-btn" onClick={resetImageUpload}>
+                        Reset
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="ocr-results">
+                    <h4>Result</h4>
+                    {diagnoseError && <p style={{ color: "red" }}>{diagnoseError}</p>}
+                    {diagnoseResult && (
+                      <div className="image-response">
+                        {diagnoseResult.disease === "Uncertain" ? (
+                          <>
+                            <h3>⚠️ Diagnosis Uncertain</h3>
+                            <p>
+                              The image may not be a plant, or the system wasn’t sure.
+                            </p>
+                            {diagnoseResult.rawAdvice && (
+                              <p>{diagnoseResult.rawAdvice}</p>
+                            )}
+                          </>
+                        ) : (
+                          <>
+                            <h3>✅ Disease: {diagnoseResult.disease}</h3>
+                            <p>
+                              <strong>Problems:</strong>{" "}
+                              {diagnoseResult.problems?.join(", ") || "N/A"}
+                            </p>
+                            <p>
+                              <strong>Solutions:</strong>{" "}
+                              {diagnoseResult.solutions?.join(", ") || "N/A"}
+                            </p>
+                            <p className="text-xs text-gray-500 mt-2">
+                              Provider: {diagnoseResult.provider}
+                            </p>
+                          </>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       )}
+
+      {/* ---------- CHATBOX POPUP ---------- */}
+      {isChatOpen && <Chatbox onClose={closeChatModal} />}
     </div>
   );
 }

@@ -2432,7 +2432,7 @@ body::before {
   box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
 }
 
-.header {
+/* .header {
   background: linear-gradient(-135deg, #a8d5ba 0%, #e3f9e5 50%, #fff4e5 100%);
   height: 7%;
   display: flex;
@@ -2440,13 +2440,28 @@ body::before {
   align-items: center;
   font-family: "Segoe UI", sans-serif;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+} */
+
+.header {
+  background: linear-gradient(-135deg, #a8d5ba 0%, #e3f9e5 50%, #fff4e5 100%);
+  height: 7vh; /* better than % for responsiveness */
+  width: 100%; /* ✅ ensure full width */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Segoe UI", sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 0;
+  left: 0;
 }
+
 
 /* Left Section */
 .left-section {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .logo {
@@ -2536,12 +2551,13 @@ body::before {
 }
 
 /* Wavy Section */
-.wavy-section {
+/* .wavy-section {
   position: relative;
-  height: 80vh;
-}
+  height: 75vh;
+  width: 100%;
+}*/
 
-/* Wavy Background */
+/* Wavy Background *//*
 .wavy-bg {
   position: relative;
   width: 100%;
@@ -2553,7 +2569,32 @@ body::before {
   justify-content: center;
   padding: 0 5%;
   box-sizing: border-box;
+} */
+
+/* Wavy Section */
+.wavy-section {
+  position: relative;
+  height: 75vh;
+  width: 100%;   /* ✅ full width */
+  margin: 0;     /* remove unwanted gaps */
+  padding: 0;
+  overflow: hidden;
 }
+
+/* Wavy Background */
+.wavy-bg {
+  position: relative;
+  width: 100%;   /* ✅ full width */
+  height: 100%;
+  background-color: white;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 60%, 50% 50%, 25% 60%, 0 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+  box-sizing: border-box;
+}
+
 
 /* Inner Flex Content */
 .wavy-content {
